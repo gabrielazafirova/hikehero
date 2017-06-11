@@ -1,7 +1,7 @@
 // Load required packages
 var mongoose = require('mongoose');
 
-// Define our movie schema
+// Define our tour schema
 var Movie   = new mongoose.Schema({
     title: String,
     synopsis: String,

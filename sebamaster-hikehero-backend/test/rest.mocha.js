@@ -12,8 +12,8 @@ describe('REST API test', function () {
         testuser = {
             //to be received
             _id: undefined,
-            //you should make sure this user does not exist yet and eventually choose a different username
-            username: "testhans",
+            //you should make sure this user does not exist yet and eventually choose a different email
+            email: "testhans",
             password: "jaskdjasdjkas",
             //to be received
             token: undefined
@@ -23,7 +23,7 @@ describe('REST API test', function () {
         request(app)
             .post("/signup")
             .send({
-                username: testuser.username,
+                email: testuser.email,
                 password: testuser.password
             })
             .expect('Content-Type', /json/)
@@ -32,7 +32,7 @@ describe('REST API test', function () {
                 assert(res.body.token);
 
                 var tokendata = parseToken(res.body.token);
-                assert(tokendata.user.username == testuser.username);
+                assert(tokendata.user.email == testuser.email);
 
                 testuser._id = tokendata.user._id;
                 testuser.token = res.body.token;
@@ -53,7 +53,7 @@ describe('REST API test', function () {
         request(app)
             .post("/login")
             .send({
-                username: testuser.username,
+                email: testuser.email,
                 password: testuser.password
             })
             .expect('Content-Type', /json/)

@@ -38,7 +38,7 @@ class AppHeaderComponentController{
 
     getCurrentUser(){
         let user = this.UserService.getCurrentUser();
-        return user.username;
+        return user.email;
     }
 
 

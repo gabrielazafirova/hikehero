@@ -80,7 +80,7 @@
 			"method": "DELETE",
 			"data": [
 				{
-					"key": "username",
+					"key": "email",
 					"value": "hansl",
 					"type": "text",
 					"enabled": true
@@ -171,7 +171,7 @@
 			"method": "GET",
 			"data": [
 				{
-					"key": "username",
+					"key": "email",
 					"value": "hansl",
 					"type": "text",
 					"enabled": true
@@ -203,8 +203,8 @@
 			"method": "POST",
 			"data": [
 				{
-					"key": "username",
-					"value": "{{USERNAME}}",
+					"key": "email",
+					"value": "{{email}}",
 					"type": "text",
 					"enabled": true
 				},
@@ -235,8 +235,8 @@
 			"method": "POST",
 			"data": [
 				{
-					"key": "username",
-					"value": "{{USERNAME}}",
+					"key": "email",
+					"value": "{{email}}",
 					"type": "text",
 					"enabled": true
 				},
@@ -249,7 +249,7 @@
 			],
 			"dataMode": "urlencoded",
 			"version": 2,
-			"tests": "var token = JSON.parse(responseBody).token;\ntests[\"Contains token\"] = token;\n\npostman.setGlobalVariable(\"token\", token);\n\nvar decodedTokenData = JSON.parse(atob(token.split('.')[1]));\n\ntests[\"correct username encoded in token\"] = decodedTokenData.user.username == postman.getEnvironmentVariable(\"USERNAME\");\n\npostman.setGlobalVariable(\"user_id\", decodedTokenData.user._id);",
+			"tests": "var token = JSON.parse(responseBody).token;\ntests[\"Contains token\"] = token;\n\npostman.setGlobalVariable(\"token\", token);\n\nvar decodedTokenData = JSON.parse(atob(token.split('.')[1]));\n\ntests[\"correct email encoded in token\"] = decodedTokenData.user.email == postman.getEnvironmentVariable(\"email\");\n\npostman.setGlobalVariable(\"user_id\", decodedTokenData.user._id);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1460657424094,
@@ -287,7 +287,7 @@
 			"method": "GET",
 			"data": [
 				{
-					"key": "username",
+					"key": "email",
 					"value": "hansl",
 					"type": "text",
 					"enabled": true

@@ -4,16 +4,16 @@ var jwt = require('jwt-simple');
 
 module.exports.login = function(req, res){
 
-    if(!req.body.username){
-        res.status(400).send('username required');
+    if(!req.body.email){
+        res.status(400).send('Email required');
         return;
     }
     if(!req.body.password){
-        res.status(400).send('password required');
+        res.status(400).send('Password required');
         return;
     }
 
-    User.findOne({username: req.body.username}, function(err, user){
+    User.findOne({email: req.body.email}, function(err, user){
         if (err) {
             res.status(500).send(err);
             return
@@ -35,19 +35,34 @@ module.exports.login = function(req, res){
 };
 
 module.exports.signup = function(req, res){
-    if(!req.body.username){
-        res.status(400).send('username required');
+    if(!req.body.email){
+        res.status(400).send('Email required');
         return;
     }
     if(!req.body.password){
         res.status(400).send('password required');
         return;
     }
+    if(!req.body.firstname){
+        res.status(400).send('First name required');
+        return;
+    }
+    if(!req.body.lastname){
+        res.status(400).send('Last name required');
+        return;
+    }
+    if(!req.body.aboutme){
+        res.status(400).send('Description about yourself is required');
+        return;
+    }
 
     var user = new User();
 
-    user.username = req.body.username;
+    user.email = req.body.email;
     user.password = req.body.password;
+    user.firstName = req.body.firstname;
+    user.lastName = req.body.lastname;
+    user.aboutMe = req.body.aboutme;
 
     user.save(function(err) {
         if (err) {
@@ -71,7 +86,7 @@ function createToken(user) {
     var tokenPayload = {
         user: {
             _id: user._id,
-            username: user.username
+            email: user.email
         }
 
     };
