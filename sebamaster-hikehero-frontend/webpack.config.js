@@ -31,6 +31,14 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'html'
             },
+            {
+                test: /\.png$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.jpg$/,
+                loader: 'file-loader'
+            },
             // Extract css files
             {
                 test: /\.css$/,

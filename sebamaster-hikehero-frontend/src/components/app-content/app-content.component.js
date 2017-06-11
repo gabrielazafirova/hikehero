@@ -3,6 +3,8 @@
 
 import template from './app-content.template.html';
 
+import './app-content.style.css';
+
 class AppContentComponent {
     constructor(){
         this.controller = AppContentComponentController;
