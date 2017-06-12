@@ -9,13 +9,11 @@ var userSchema = mongoose.Schema({
     },
     firstname: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     lastname: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     password: {
         type: String,
@@ -23,8 +21,7 @@ var userSchema = mongoose.Schema({
     },
     description: {
         type: String,
-        required: true, //empty values are accepted
-        unique: true
+        required: true //empty values are accepted
     },
 });
 
