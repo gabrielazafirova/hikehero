@@ -8,17 +8,17 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
-import MoviesService from './services/movies/movies';
+import TripsService from './services/trips/trips';
 import UserService from './services/user/user';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
-import ViewMovies from './components/view-movies/view-movies';
-import ViewMovie from './components/view-movie/view-movie';
-import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
-import ViewMovieCreate from './components/view-movie-create/view-movie-create';
+import ViewTrips from './components/view-trips/view-trips';
+import ViewTrip from './components/view-trip/view-trip';
+import ViewTripEdit from './components/view-trip-edit/view-trip-edit';
+import ViewTripCreate from './components/view-trip-create/view-trip-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
 
@@ -27,12 +27,12 @@ let app = angular.module('app', [
     angularMaterial,
     ngMdIcons,
     UserService.name,
-    MoviesService.name,
+    TripsService.name,
     AppContent.name,
-    ViewMovies.name,
-    ViewMovie.name,
-    ViewMovieEdit.name,
-    ViewMovieCreate.name,
+    ViewTrips.name,
+    ViewTrip.name,
+    ViewTripEdit.name,
+    ViewTripCreate.name,
     ViewLogin.name,
     ViewSignUp.name,
 ]);

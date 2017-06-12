@@ -1,22 +1,22 @@
 'use strict';
 
-import MoviesComponent from './../components/view-movies/view-movies.component';
-import MovieComponent from './../components/view-movie/view-movie.component';
-import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
-import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
+import TripsComponent from './../components/view-trips/view-trips.component';
+import TripComponent from './../components/view-trip/view-trip.component';
+import TripEditComponent from './../components/view-trip-edit/view-trip-edit.component';
+import TripCreateComponent from './../components/view-trip-create/view-trip-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignUpComponent from './../components/view-signup/view-signup.component';
-import MoviesService from './../services/movies/movies.service';
+import TripsService from './../services/trips/trips.service';
 
 
-resolveMovie.$inject = ['$stateParams', MoviesService.name];
-function resolveMovie($stateParams,moviesService){
-    return moviesService.get($stateParams.movieId);
+resolveTrip.$inject = ['$stateParams', TripsService.name];
+function resolveTrip($stateParams,tripsService){
+    return tripsService.get($stateParams.tripId);
 }
 
-resolveMovies.$inject = [MoviesService.name];
-function resolveMovies(moviesService){
-    return moviesService.list();
+resolveTrips.$inject = [TripsService.name];
+function resolveTrips(tripsService){
+    return tripsService.list();
 }
 
 
@@ -24,33 +24,33 @@ config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/movies");
+    $urlRouterProvider.otherwise("/trips");
 
     $stateProvider
-        .state('movies', {
-            url: '/movies',
-            component: MoviesComponent.name,
+        .state('trips', {
+            url: '/trips',
+            component: TripsComponent.name,
             resolve: {
-                movies : resolveMovies
+                trips : resolveTrips
             }
         })
-        .state('movieAdd', {
-            url: '/movies/new',
-            component: MovieCreateComponent.name
+        .state('tripAdd', {
+            url: '/trips/new',
+            component: TripCreateComponent.name
         })
-        .state('movie', {
-            url: '/movies/:movieId',
-            component: MovieComponent.name,
+        .state('trip', {
+            url: '/trips/:tripId',
+            component: TripComponent.name,
             resolve: {
-                movie : resolveMovie
+                trip : resolveTrip
             }
 
         })
-        .state('movieEdit', {
-            url: '/movies/:movieId/edit',
-            component: MovieEditComponent.name,
+        .state('tripEdit', {
+            url: '/trips/:tripId/edit',
+            component: TripEditComponent.name,
             resolve: {
-                movie : resolveMovie
+                trip : resolveTrip
             }
         })
         .state('login', {
