@@ -4,10 +4,17 @@
         <br/>
         <form name="movieForm">
             <md-input-container class="md-icon-float md-block">
-                <label>Title</label>
+                <label>Tour Title</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.movie.title" type="text">
             </md-input-container>
+            <div>
+                <label>Date:</label>
+                    <md-datepicker ng-model="birthday">
+                     <input ng-model="$ctrl.movie.year" type="text">
+                    </md-datepicker>
+                <label>From:</label>
+            </div>
             <md-input-container class="md-icon-float md-block">
                 <label>Year</label>
                 <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
