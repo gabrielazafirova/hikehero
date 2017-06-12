@@ -11,13 +11,17 @@
         <div flex>
             <section layout="row" layout-align="end center" layout-wrap>
                 <md-button>Create a Tour</md-button>
-                <md-button>Sign Up</md-button>
 
-                    <md-button ng-click="$ctrl.login($event)">
-                        <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
+                <md-button ng-click="$ctrl.signup($event)" >
+                    <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
+                    Sign Up
+                </md-button>
+
+                <md-button ng-click="$ctrl.login($event)" >
+                    <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
                         Login
-                    </md-button>
- 
+                </md-button>
+
             </section>
 
         </div>
