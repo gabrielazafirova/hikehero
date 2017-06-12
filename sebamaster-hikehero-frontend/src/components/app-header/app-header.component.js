@@ -59,6 +59,10 @@ class AppHeaderComponentController{
         this.$state.go('movies',{});
     }
 
+    create_tour(){
+        this.$state.go('movieAdd',{});
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }

@@ -34,7 +34,7 @@ let app = angular.module('app', [
     ViewMovieEdit.name,
     ViewMovieCreate.name,
     ViewLogin.name,
-    ViewSignUp.name
+    ViewSignUp.name,
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');

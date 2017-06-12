@@ -6,7 +6,6 @@ import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.
 import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignUpComponent from './../components/view-signup/view-signup.component';
-
 import MoviesService from './../services/movies/movies.service';
 
 

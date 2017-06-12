@@ -28,6 +28,17 @@ export default class UserService {
         });
     }
 
+    create_tour(titel,price, date, difficulty, description, location) {
+        return this.$http.post(`${ this.API_URL }/user/create_tour`, {
+            titel: titel,
+            price: price,
+            date: date,
+            difficulty: difficulty,
+            description: description,
+            location: location,
+        });
+    }
+
     login(email, pass) {
         return this.$http.post(`${ this.API_URL }/user/login`, {
             email: email,
