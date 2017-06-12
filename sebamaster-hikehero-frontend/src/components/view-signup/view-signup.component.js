@@ -31,10 +31,13 @@ class ViewSignUpComponentController{
     }
 
     submit(){
-        let user = this.signup.email;
+        let email = this.signup.email;
         let password = this.signup.password;
+        let firstname = this.signup.firstname;
+        let lastname = this.signup.lastname;
+        let description = this.signup.description;
 
-        this.UserService.signup(user,password).then(()=> {
+        this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
             this.$state.go('movies',{});
         });
     }

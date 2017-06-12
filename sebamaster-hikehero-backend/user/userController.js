@@ -51,7 +51,7 @@ module.exports.signup = function(req, res){
         res.status(400).send('Last name required');
         return;
     }
-    if(!req.body.aboutme){
+    if(!req.body.description){
         res.status(400).send('Description about yourself is required');
         return;
     }
@@ -60,9 +60,9 @@ module.exports.signup = function(req, res){
 
     user.email = req.body.email;
     user.password = req.body.password;
-    user.firstName = req.body.firstname;
-    user.lastName = req.body.lastname;
-    user.aboutMe = req.body.aboutme;
+    user.firstname = req.body.firstname;
+    user.lastname = req.body.lastname;
+    user.description = req.body.description;
 
     user.save(function(err) {
         if (err) {

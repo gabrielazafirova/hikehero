@@ -7,12 +7,12 @@ var userSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    firstName: {
+    firstname: {
         type: String,
         required: true,
         unique: true
     },
-    lastName: {
+    lastname: {
         type: String,
         required: true,
         unique: true
@@ -21,7 +21,7 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    aboutMe: {
+    description: {
         type: String,
         required: true, //empty values are accepted
         unique: true
