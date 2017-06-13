@@ -1,7 +1,7 @@
 'use strict';
 
 
-export default class MoviesService {
+export default class TripsService {
 
     static get $inject(){
         return ['$http', 'API_URL'];
@@ -9,12 +9,12 @@ export default class MoviesService {
 
     constructor($http,API_URL) {
         this.$http = $http;
-        this.resourceUrl = `${ API_URL }/movies/`;
+        this.resourceUrl = `${ API_URL }/trips/`;
 
     }
 
     static get name(){
-        return 'moviesService';
+        return 'tripsService';
     }
 
     list() {
@@ -43,9 +43,9 @@ export default class MoviesService {
     }
 
 
-    create(movie) {
+    create(trip) {
         let url = this.resourceUrl;
-        return this.$http.post(url,movie).then(responce => {
+        return this.$http.post(url,trip).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
@@ -65,10 +65,10 @@ export default class MoviesService {
         })
     }
 
-    update(movie) {
+    update(trip) {
 
-        let url = `${ this.resourceUrl }${ movie['_id'] }`;
-        return this.$http.put(url,movie).then(responce => {
+        let url = `${ this.resourceUrl }${ trip['_id'] }`;
+        return this.$http.put(url,trip).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);

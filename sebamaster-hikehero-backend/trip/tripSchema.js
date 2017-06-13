@@ -2,11 +2,14 @@
 var mongoose = require('mongoose');
 
 // Define our tour schema
-var Movie   = new mongoose.Schema({
+var Trip   = new mongoose.Schema({
     title: String,
-    synopsis: String,
-    mpaa_rating: String,
-    year: Number,
+    startdate: Date,
+    starttime: Number,
+    location: String,
+    difficulty: Number,
+    price: Number,
+    description: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -14,5 +17,5 @@ var Movie   = new mongoose.Schema({
 });
 
 // Export the Mongoose model
-module.exports = mongoose.model('Movie', Movie);
+module.exports = mongoose.model('Trip', Trip);
 

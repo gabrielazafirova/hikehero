@@ -1,33 +1,43 @@
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum">
-        <h1> {{$ctrl.movie.title}} </h1>
+        <h1> {{$ctrl.trip.title}} </h1>
         <br/>
-        <form name="movieForm">
+        <form name="tripForm">
             <md-input-container class="md-icon-float md-block">
-                <label>Tour Title</label>
+                <label>Trip Title</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.title" type="text">
+                <input ng-model="$ctrl.trip.title" type="text">
             </md-input-container>
             <div>
                 <label>Date:</label>
                     <md-datepicker ng-model="birthday">
-                     <input ng-model="$ctrl.movie.year" type="text">
+                     <input ng-model="$ctrl.trip.startdate" type="text">
                     </md-datepicker>
                 <label>From:</label>
             </div>
             <md-input-container class="md-icon-float md-block">
-                <label>Year</label>
+                <label>Time</label>
                 <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.year" type="text">
+                <input ng-model="$ctrl.trip.starttime" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>MPAA Rating</label>
+                <label>Price</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.mpaa_rating" type="text">
+                <input ng-model="$ctrl.trip.price" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Location</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.trip.location" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Difficulty</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.trip.difficulty" type="text">
             </md-input-container>
             <md-input-container class="md-block">
-                <label>Synopsis</label>
-                <textarea ng-model="$ctrl.movie.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
+                <label>Description</label>
+                <textarea ng-model="$ctrl.trip.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
             </md-input-container>
             <div layout="row">
                 <span flex></span>
