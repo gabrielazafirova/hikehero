@@ -18,7 +18,7 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
     background-color: transparent;
 }
 
-img {
+img.header {
     height: 100px;
     width: 100px;
 }
