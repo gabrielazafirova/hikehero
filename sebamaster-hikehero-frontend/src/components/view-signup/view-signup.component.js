@@ -21,16 +21,21 @@ class ViewSignUpComponent {
 }
 
 class ViewSignUpComponentController{
-    constructor($state,UserService){
+    constructor($state,UserService,) {
         this.$state = $state;
         this.UserService = UserService;
     }
 
+
+
     $onInit() {
         this.signup = {};
     }
-
     submit(){
+        /*let photo = this.signup.photo; //kann leider nicht auf photo ueber ng-model zugreifen da multipart/form-data
+        console.log('file is ' );
+        console.dir(photo);*/
+
         let email = this.signup.email;
         let password = this.signup.password;
         let firstname = this.signup.firstname;
@@ -38,6 +43,7 @@ class ViewSignUpComponentController{
         let description = this.signup.description;
 
         this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
+            //this.UserService.upload(photo);
             this.$state.go('trips',{});
         });
     }

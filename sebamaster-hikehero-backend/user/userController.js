@@ -2,6 +2,9 @@ var Config = require('../config/config.js');
 var User = require('./userSchema');
 var jwt = require('jwt-simple');
 
+
+
+
 module.exports.login = function(req, res){
 
     if(!req.body.email){

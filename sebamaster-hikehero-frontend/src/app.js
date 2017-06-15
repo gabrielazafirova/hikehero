@@ -22,6 +22,7 @@ import ViewTripCreate from './components/view-trip-create/view-trip-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
 
+
 let app = angular.module('app', [
     uiRouter,
     angularMaterial,

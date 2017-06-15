@@ -4,7 +4,15 @@
         <span flex="35"></span>
         <md-card flex="30">
             <md-card-content>
-                <form name="SignUpForm">
+                <form name="SignUpForm" action="http://localhost:3000/api/user/upload" method="post" enctype="multipart/form-data">
+                    <div layout-align="center center" layout="row">
+                        <div class="image-upload">
+                            <label for="file-upload">
+                                <img src="profilbild_placeholder.jpg"/>
+                            </label>
+                        </div>
+                        <input id="file-upload" name="photo" type="file" ng-model="$ctrl.signup.photo"/>
+                    </div>
                     <md-input-container class="md-block">
                         <label>First Name</label>
                         <input type="text" name="firstname" ng-model="$ctrl.signup.firstname" placeholder="Enter your first name" required=""/>
@@ -37,7 +45,7 @@
                         <label>Description</label>
                         <textarea ng-model="$ctrl.signup.description" md-maxlength="250" rows="3" md-select-on-focus></textarea>
                     </md-input-container>
-                    <md-button ng-disabled="!SignUpForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Sign up &nbsp</md-button>
+                    <md-button type="submit" ng-disabled="!SignUpForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Sign up &nbsp</md-button>
                 </form>
             </md-card-content>
         </md-card>

@@ -29,6 +29,7 @@ var passport = require('passport');
 var jwtConfig = require('./passport/jwtConfig');
 app.use(passport.initialize());
 jwtConfig(passport);
+
 /**
  * routing
  */
