@@ -4,6 +4,7 @@ import TripsComponent from './../components/view-trips/view-trips.component';
 import TripComponent from './../components/view-trip/view-trip.component';
 import TripEditComponent from './../components/view-trip-edit/view-trip-edit.component';
 import TripCreateComponent from './../components/view-trip-create/view-trip-create.component';
+import CarouselComponent from './../components/view-carousel/view-carousel.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignUpComponent from './../components/view-signup/view-signup.component';
 import TripsService from './../services/trips/trips.service';
@@ -24,15 +25,19 @@ config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/trips");
+    $urlRouterProvider.otherwise("/home");
 
     $stateProvider
         .state('trips', {
             url: '/trips',
             component: TripsComponent.name,
             resolve: {
-                trips : resolveTrips
+                trips: resolveTrips
             }
+        })
+        .state('home', {
+            url: '/home',
+            component: CarouselComponent.name,
         })
         .state('tripAdd', {
             url: '/trips/new',

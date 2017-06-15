@@ -1,0 +1,9 @@
+img.slider {
+    height: 100%;
+    width: 100%;
+    /*max-width: 800px;*/
+}
+
+img.search_bar {
+    max-width: 90%;
+}

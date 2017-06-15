@@ -35,6 +35,7 @@
     "angular-material": "^1.1.0",
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
+    "swiper": "^3.4.2",
     "file-loader": "^0.11.2"
   },
   "engines": {
