@@ -10,21 +10,30 @@
 
         <div flex>
             <section layout="row" layout-align="end center" layout-wrap>
-                <md-button ng-click="$ctrl.create_tour($event)" >
+                <md-button ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.create_tour($event)" >
                     <md-icon md-menu-align-target><ng-md-icon icon="create" ></ng-md-icon></md-icon>
                     Create Tour
                 </md-button>
 
-                <md-button ng-click="$ctrl.signup($event)" >
+                <md-button ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.signup($event)" >
                     <md-icon md-menu-align-target><ng-md-icon icon="note_add" ></ng-md-icon></md-icon>
                     Sign Up
                 </md-button>
 
-                <md-button ng-click="$ctrl.login($event)" >
+                <md-button ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)" >
                     <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
                         Login
                 </md-button>
 
+                <md-button ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="logout" ></ng-md-icon></md-icon>
+                        Logout
+                </md-button>
+
+                <md-button ng-if="$ctrl.isAuthenticated()">
+                    <md-icon md-menu-align-target><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
+                    {{$ctrl.getCurrentUser()}}
+                </md-button>
             </section>
 
         </div>
