@@ -5,11 +5,11 @@
 
         <p> {{trip.title}} </p>
 
-        <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(trip)" >
+        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(trip)" >
             <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
         </md-button>
 
-        <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(trip)" >
+        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(trip)" >
             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
         </md-button>
         <md-divider ng-if="!$last"></md-divider>

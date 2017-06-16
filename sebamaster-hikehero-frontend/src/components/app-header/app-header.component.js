@@ -38,12 +38,16 @@ class AppHeaderComponentController{
 
     getCurrentUser(){
         let user = this.UserService.getCurrentUser();
-        return user.email;
+        return user.firstname;
     }
 
 
     goHome(){
         this.$state.go('home',{});
+    }
+
+    goTrips(){
+        this.$state.go('trips',{});
     }
 
     login(){

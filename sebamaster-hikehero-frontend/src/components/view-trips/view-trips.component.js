@@ -35,6 +35,10 @@ class ViewTripsComponentController{
         this.$state.go('trip',{ tripId:_id});
     };
 
+    isAuthenticated(){
+        return this.UserService.isAuthenticated();
+    };
+
     edit (trip) {
 
         if (this.UserService.isAuthenticated()) {
