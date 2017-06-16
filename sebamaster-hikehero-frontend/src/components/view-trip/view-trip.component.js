@@ -54,6 +54,9 @@ class ViewTripComponentController{
         }
     };
 
+    isAuthenticated(){
+        return this.UserService.isAuthenticated();
+    };
 
     getPosterURL(){
         let posterURL = 'http://placehold.it/32x32';
