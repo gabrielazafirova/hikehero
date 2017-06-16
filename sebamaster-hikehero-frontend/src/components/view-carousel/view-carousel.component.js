@@ -3,7 +3,7 @@
 
 import template from './view-carousel.template.html';
 import './view-carousel.style.css';
-//import Swiper from 'swiper'; // Module Swiper wurde nicht gefunden
+import Swiper from 'swiper'; // Module Swiper wurde nicht gefunden
 
 class ViewCarouselComponent {
     constructor(){
@@ -24,7 +24,7 @@ class ViewCarouselComponentController{
     }
 
     $onInit() {
-        /*new Swiper ('.swiper-container', { // auskommentiert da der Swiper nicht gefunden wurde
+        new Swiper ('.swiper-container', { // auskommentiert da der Swiper nicht gefunden wurde
             // Optional parameters
             direction: 'horizontal',
             loop: true,
@@ -38,7 +38,7 @@ class ViewCarouselComponentController{
 
             // And if we need scrollbar
             scrollbar: '.swiper-scrollbar',
-        });*/
+        });
     }
 
     static get $inject(){
