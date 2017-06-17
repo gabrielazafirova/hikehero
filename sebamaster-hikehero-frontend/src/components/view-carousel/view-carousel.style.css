@@ -4,11 +4,17 @@ img.slider {
     /*max-width: 800px;*/
 }
 
-img.search_bar {
+/*img.search_bar {
     max-width: 90%;
-}
+}*/
 .md-button{
     margin-top: 17px;
     height: 30px;
     width: 30px;
+}
+/*img.search_bar {
+    max-width: 90%;
+}*/
+#search{
+    max-width: 90%;
 }
