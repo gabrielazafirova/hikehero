@@ -8,7 +8,7 @@ img.slider {
     max-width: 90%;
 }*/
 .md-button{
-    margin-top: 17px;
+    margin-top: -15px;
     height: 30px;
     width: 30px;
 }
@@ -17,4 +17,7 @@ img.slider {
 }*/
 #search{
     max-width: 90%;
+}
+#date{
+    margin-top: -20px;
 }
