@@ -7,3 +7,8 @@ img.slider {
 img.search_bar {
     max-width: 90%;
 }
+.md-button{
+    margin-top: 17px;
+    height: 30px;
+    width: 30px;
+}
