@@ -2,49 +2,107 @@
     <md-content class="md-no-momentum">
         <h1> {{$ctrl.trip.title}} </h1>
         <br/>
-        <form name="tripForm">
-            <md-input-container class="md-icon-float md-block">
-                <label>Trip Title</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.trip.title" type="text">
-            </md-input-container>
-            <div>
-                <label>Date:</label>
-                    <md-datepicker ng-model="birthday">
-                     <input ng-model="$ctrl.trip.startdate" type="text">
-                    </md-datepicker>
-            </div>
-            <md-input-container class="md-icon-float md-block">
-                <label>Time</label>
-                <md-icon><ng-md-icon icon="access_time" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.trip.starttime" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>Price</label>
-                <md-icon><ng-md-icon icon="attach_money" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.trip.price" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>Location</label>
-                <md-icon><ng-md-icon icon="add_location" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.trip.location" type="text">
-            </md-input-container>
+        <!--<form name="tripForm">-->
+            <!--<md-input-container class="md-icon-float md-block">-->
+                <!--<label>Trip Title</label>-->
+                <!--<md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>-->
+                <!--<input ng-model="$ctrl.trip.title" type="text">-->
+            <!--</md-input-container>-->
+            <!--<div>-->
+                <!--<label>Date:</label>-->
+                    <!--<md-datepicker ng-model="birthday">-->
+                     <!--<input ng-model="$ctrl.trip.startdate" type="text">-->
+                    <!--</md-datepicker>-->
+            <!--</div>-->
+            <!--<md-input-container class="md-icon-float md-block">-->
+                <!--<label>Time</label>-->
+                <!--<md-icon><ng-md-icon icon="access_time" ></ng-md-icon></md-icon>-->
+                <!--<input ng-model="$ctrl.trip.starttime" type="text">-->
+            <!--</md-input-container>-->
+            <!--<md-input-container class="md-icon-float md-block">-->
+                <!--<label>Price</label>-->
+                <!--<md-icon><ng-md-icon icon="attach_money" ></ng-md-icon></md-icon>-->
+                <!--<input ng-model="$ctrl.trip.price" type="text">-->
+            <!--</md-input-container>-->
+            <!--<md-input-container class="md-icon-float md-block">-->
+                <!--<label>Location</label>-->
+                <!--<md-icon><ng-md-icon icon="add_location" ></ng-md-icon></md-icon>-->
+                <!--<input ng-model="$ctrl.trip.location" type="text">-->
+            <!--</md-input-container>-->
 
-            <md-input-container class="md-icon-float md-block">
-                <label>Difficulty</label>
-                <md-icon><ng-md-icon icon="flash_on" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.trip.difficulty" type="text">
-            </md-input-container>
-            <md-input-container class="md-block">
-                <label>Description</label>
-                <textarea ng-model="$ctrl.trip.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
-            </md-input-container>
+            <!--<md-input-container class="md-icon-float md-block">-->
+                <!--<label>Difficulty</label>-->
+                <!--<md-icon><ng-md-icon icon="flash_on" ></ng-md-icon></md-icon>-->
+                <!--<input ng-model="$ctrl.trip.difficulty" type="text">-->
+            <!--</md-input-container>-->
+            <!--<md-input-container class="md-block">-->
+                <!--<label>Description</label>-->
+                <!--<textarea ng-model="$ctrl.trip.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>-->
+            <!--</md-input-container>-->
+
+
+        <!--</form>-->
+
+        <form>
+            <div class="whitebox">
+                <div layout="row" layout-padding>
+                    <div layout="row" flex>
+                        <div flex="30">Title:</div>
+                        <input type="text" ng-model="$ctrl.trip.title" flex>
+                    </div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div layout="row" flex="33">
+                        <div flex="50">Date:</div>
+                        <input ng-model="$ctrl.trip.startdate" type="text" flex>
+                    </div>
+                    <div layout="row" flex="33">
+                        <div flex="60">From:</div>
+                        <input ng-model="$ctrl.trip.starttime" type="text" flex>
+                    </div>
+                    <div layout="row" flex>
+                        <div flex="60">To:</div>
+                        <input ng-model="$ctrl.trip.endtime" type="text" flex>
+                    </div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div layout="row" flex="33" >
+                        <div flex="70">Price:</div>
+                        <input ng-model="$ctrl.trip.price" type="text" flex>
+                    </div>
+                    <div layout="row" flex="33">
+                        <div flex="80">Difficulty:</div>
+                        <input ng-model="$ctrl.trip.difficulty" type="text" flex>
+                    </div>
+                    <div layout="row" flex></div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div layout="row" flex>
+                        <div flex="30">Location:</div>
+                        <input ng-model="$ctrl.trip.location" type="text" flex>
+                    </div>
+                </div>
+                <div layout="column" layout-padding>
+                    <div>Description:</div>
+                    <br>
+                    <textarea ng-model="$ctrl.trip.description"></textarea>
+                </div>
+                <div layout="column" layout-padding>
+                    <div>Photos: (optional, max 3)</div>
+                    <div layout="row">
+                        <img id="image1" width="100" height="100" data-ng-src="data:image/png;base64,{{$ctrl.trip.image}}"/>
+                        <!--<img id="image1" width="100" height="100" data-ng-src="data:image/png;base64,{{$ctrl.trip.image}}"/>-->
+
+                        <input type="file" id="imageUpload" name="photo" onchange="$ctrl.uploadImage()"/>
+                        <span flex></span>
+                    </div>
+                </div>
+            </div>
             <div layout="row">
                 <span flex></span>
-                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Create Tour</md-button>
                 <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
             </div>
-
         </form>
     </md-content>
 

@@ -6,6 +6,8 @@ import template from './view-trip-create.template.html';
 import TripsService from './../../services/trips/trips.service';
 import UserService from './../../services/user/user.service';
 
+import './view-trip-create.style.css';
+
 class ViewTripCreateComponent {
     constructor(){
         this.controller = ViewTripCreateComponentController;
@@ -39,6 +41,17 @@ class ViewTripCreateComponentController{
         });
 
     };
+
+    uploadImage() {
+        // document.getElementById('image1').setAttribute('src', this.image)
+        let f = document.getElementById('imageUpload').files[0];
+        let r = new FileReader();
+        r.onloadend = function (e) {
+            this.imageURL = e.target.result;
+            document.getElementById('image1').setAttribute('src', this.imageURL);
+        }
+        r.readAsDataURL(f);
+    }
 
 
     static get $inject(){

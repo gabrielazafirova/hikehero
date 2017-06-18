@@ -4,7 +4,7 @@
 .login-form md-card md-card-title {
     background-color: blue;
 }
-input[type="file"] {
+input[type="file"].signup {
     display: none;
 }
 .custom-file-upload {
