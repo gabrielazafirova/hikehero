@@ -45,48 +45,52 @@
 
         <form>
             <div class="whitebox">
-                <div layout="row" layout-padding>
-                    <div layout="row" flex>
-                        <div flex="30">Title:</div>
-                        <input type="text" ng-model="$ctrl.trip.title" flex>
-                    </div>
-                </div>
-                <div layout="row" layout-padding>
-                    <div layout="row" flex="33">
+                <md-input-container class="create_trip" layout="row" flex layout-padding>
+                    <div flex="30">Title:</div>
+                    <input type="text" ng-model="$ctrl.trip.title" flex>
+                </md-input-container>
+                <div layout="row">
+                    <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
                         <div flex="50">Date:</div>
-                        <input ng-model="$ctrl.trip.startdate" type="text" flex>
-                    </div>
-                    <div layout="row" flex="33">
+                        <md-datepicker ng-model="$ctrl.trip.startdate"></md-datepicker>
+                    </md-input-container>
+                    <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
                         <div flex="60">From:</div>
                         <input ng-model="$ctrl.trip.starttime" type="text" flex>
-                    </div>
-                    <div layout="row" flex>
+                    </md-input-container>
+                    <md-input-container class="create_trip" layout="row" flex layout-padding>
                         <div flex="60">To:</div>
                         <input ng-model="$ctrl.trip.endtime" type="text" flex>
-                    </div>
+                    </md-input-container>
                 </div>
-                <div layout="row" layout-padding>
-                    <div layout="row" flex="33" >
+                <div layout="row">
+                    <md-input-container class="create_trip" layout="row" flex="33"  layout-padding>
                         <div flex="70">Price:</div>
                         <input ng-model="$ctrl.trip.price" type="text" flex>
-                    </div>
-                    <div layout="row" flex="33">
+                    </md-input-container>
+                    <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
                         <div flex="80">Difficulty:</div>
-                        <input ng-model="$ctrl.trip.difficulty" type="text" flex>
-                    </div>
+                        <div flex>
+                            <md-select id="date" name="type" ng-model="$ctrl.trip.difficulty">
+                                <md-option value="grad1">*</md-option>
+                                <md-option value="grad2">**</md-option>
+                                <md-option value="grad3">***</md-option>
+                                <md-option value="grad4">****</md-option>
+                                <md-option value="grad5">****</md-option>
+                            </md-select>
+                        </div>
+                        <!--<input ng-model="$ctrl.trip.difficulty" type="text" flex>-->
+                    </md-input-container>
                     <div layout="row" flex></div>
                 </div>
-                <div layout="row" layout-padding>
-                    <div layout="row" flex>
-                        <div flex="30">Location:</div>
-                        <input ng-model="$ctrl.trip.location" type="text" flex>
-                    </div>
-                </div>
-                <div layout="column" layout-padding>
+                <md-input-container class="create_trip" layout="row" layout-padding>
+                    <div flex="30">Location:</div>
+                    <input ng-model="$ctrl.trip.location" type="text" flex>
+                </md-input-container>
+                <md-input-container class="create_trip" layout="column" layout-padding>
                     <div>Description:</div>
-                    <br>
                     <textarea ng-model="$ctrl.trip.description"></textarea>
-                </div>
+                </md-input-container>
                 <div layout="column" layout-padding>
                     <div>Photos: (optional, max 3)</div>
                     <div layout="row">
@@ -98,12 +102,13 @@
                     </div>
                 </div>
             </div>
-            <div layout="row">
-                <span flex></span>
-                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Create Tour</md-button>
-                <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
-            </div>
         </form>
+        <br><br>
+        <div layout="row">
+            <span flex></span>
+            <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Create Tour</md-button>
+            <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+        </div>
     </md-content>
 
 </div>

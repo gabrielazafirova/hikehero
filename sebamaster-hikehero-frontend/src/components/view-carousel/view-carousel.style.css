@@ -10,7 +10,7 @@ img.slider {
 .md-button{
     margin-top: -15px;
     height: 30px;
-    width: 30px;
+    min-width: 30px;
 }
 /*img.search_bar {
     max-width: 90%;
@@ -20,4 +20,8 @@ img.slider {
 }
 #date{
     margin-top: -20px;
+}
+
+md-card {
+    padding: 0 !important;
 }
