@@ -22,7 +22,9 @@ import ViewTripCreate from './components/view-trip-create/view-trip-create';
 import ViewCarousel from './components/view-carousel/view-carousel';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
-import MyFileComponent from "./components/directive/myFile";
+import MyFileComponent from './components/directive/myFile';
+import ViewLandingpage from './components/view-landingpage/view-landingpage';
+import ViewSearchbar from './components/view-searchbar/view-searchbar';
 // import nolimits4webswiper from './components/view-carousel/angular-swiper';
 
 
@@ -41,6 +43,8 @@ let app = angular.module('app', [
     ViewCarousel.name,
     ViewLogin.name,
     ViewSignUp.name,
+    ViewLandingpage.name,
+    ViewSearchbar.name,
 ]).directive("myFile", () => new MyFileComponent);
 
 

@@ -1,18 +1,4 @@
-<!--<ul rn-carousel class="image">-->
-    <!--<li>-->
-        <!--<div layout-align="center center">-->
-            <!--<img class="slider" src="slider_1.jpg">-->
-        <!--</div>-->
-    <!--</li>-->
 
-    <!--<li>-->
-        <!--<div layout-align="center center">-->
-            <!--<img class="slider" src="slider_2.jpg">-->
-        <!--</div>-->
-    <!--</li>-->
-<!--</ul>-->
-
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
 
 <div class="swiper-container">
@@ -35,52 +21,3 @@
     <!-- If we need scrollbar -->
     <div class="swiper-scrollbar"></div>
 </div>
-
-<!--<br><br>
-<div layout="row" layout-align="center center">
-    <img class="search_bar" src="SearchBar.png" layout-align="center center">
-</div>-->
-
-<md-content layout-padding>
-    <div style="text-align: center">
-        <form name="searchForm">
-            <md-card>
-                <md-card-content>
-                    <div layout-gt-xs="row" id="search" style="display: inline-block">
-                        <md-input-container flex="10">
-                            <input type="text" name="location" placeholder="Where?"/>
-                        </md-input-container>
-                        <md-input-container>
-                            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
-                        </md-input-container>
-                        <span>&emsp;</span>
-                        <md-input-container flex="10">
-                            <input type="text" name="location" placeholder="Price Min"/>
-                        </md-input-container>
-                        <span>&emsp;</span>
-                        <md-input-container flex="10">
-                            <input type="text" name="location" placeholder="Price Max"/>
-                        </md-input-container>
-                        <span>&emsp;</span>
-                        <md-input-container flex="15">
-                            <md-select id="date" name="type" ng-model="project.type" placeholder="Difficulty" layout-align="center center">
-                                <md-option value="grad1">*</md-option>
-                                <md-option value="grad2">**</md-option>
-                                <md-option value="grad3">***</md-option>
-                                <md-option value="grad4">****</md-option>
-                                <md-option value="grad5">****</md-option>
-                            </md-select>
-                        </md-input-container>
-                        <span>&emsp;</span>
-                        <md-input-container flex="10">
-                            <md-button id="test" class="md-raised md-primary" layout-align="center center">Search</md-button>
-                        </md-input-container>
-                    </div>
-                </md-card-content>
-
-
-            </md-card>
-
-        </form>
-    </div>
-</md-content>
