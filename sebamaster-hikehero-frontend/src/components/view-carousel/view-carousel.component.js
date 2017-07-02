@@ -1,4 +1,3 @@
-
 'use strict';
 
 import template from './view-carousel.template.html';

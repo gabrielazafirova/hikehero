@@ -5,6 +5,7 @@ import TripComponent from './../components/view-trip/view-trip.component';
 import TripEditComponent from './../components/view-trip-edit/view-trip-edit.component';
 import TripCreateComponent from './../components/view-trip-create/view-trip-create.component';
 import CarouselComponent from './../components/view-carousel/view-carousel.component';
+import LandingpageComponent from './../components/view-landingpage/view-landingpage.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignUpComponent from './../components/view-signup/view-signup.component';
 import TripsService from './../services/trips/trips.service';
@@ -37,7 +38,7 @@ export default function config ($stateProvider, $urlRouterProvider){
         })
         .state('home', {
             url: '/home',
-            component: CarouselComponent.name,
+            component: LandingpageComponent.name,
         })
         .state('tripAdd', {
             url: '/trips/new',
@@ -49,7 +50,6 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 trip : resolveTrip
             }
-
         })
         .state('tripEdit', {
             url: '/trips/:tripId/edit',

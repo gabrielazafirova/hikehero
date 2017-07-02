@@ -1,0 +1,43 @@
+<md-content layout-padding>
+    <div style="text-align: center">
+        <form name="searchForm">
+            <md-card>
+                <md-card-content>
+                    <div layout-gt-xs="row" id="search" style="display: inline-block">
+                        <md-input-container flex="10">
+                            <input type="text" name="location" placeholder="Where?"/>
+                        </md-input-container>
+                        <md-input-container>
+                            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="10">
+                            <input type="text" name="location" placeholder="Price Min"/>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="10">
+                            <input type="text" name="location" placeholder="Price Max"/>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="15">
+                            <md-select id="date" name="type" ng-model="project.type" placeholder="Difficulty" layout-align="center center">
+                                <md-option value="grad1">*</md-option>
+                                <md-option value="grad2">**</md-option>
+                                <md-option value="grad3">***</md-option>
+                                <md-option value="grad4">****</md-option>
+                                <md-option value="grad5">****</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="10">
+                            <md-button id="test" class="md-raised md-primary" layout-align="center center">Search</md-button>
+                        </md-input-container>
+                    </div>
+                </md-card-content>
+
+
+            </md-card>
+
+        </form>
+    </div>
+</md-content>
