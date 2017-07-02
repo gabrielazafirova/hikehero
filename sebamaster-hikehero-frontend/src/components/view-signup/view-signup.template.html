@@ -11,7 +11,7 @@
                                 <img src="profilbild_placeholder.jpg" width="100" height="100"/>
                             </label>
                         </div>
-                        <input class="signup" id="file-upload" name="photo" type="file" my-file="profil.picture"/>
+                        <input class="signup" id="file-upload" name="photo" type="file" my-file="customer.file"/>
                     </div>
                     <md-input-container class="md-block">
                         <label>First Name</label>
@@ -46,6 +46,7 @@
                         <textarea ng-model="$ctrl.signup.description" md-maxlength="250" rows="3" md-select-on-focus></textarea>
                     </md-input-container>
                     <md-button type="submit" ng-disabled="!SignUpForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Sign up &nbsp</md-button>
+                <md-button ng-click="$ctrl.log()"></md-button>
                 </form>
             </md-card-content>
         </md-card>
@@ -53,3 +54,5 @@
     </md-content>
     <span flex></span>
 </div>
+{{$ctrl.signup}}
+{{scope.customer.file}}

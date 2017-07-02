@@ -21,7 +21,7 @@ class ViewSignUpComponent {
 }
 
 class ViewSignUpComponentController{
-    constructor($state,UserService,) {
+    constructor($state,UserService) {
         this.$state = $state;
         this.UserService = UserService;
     }
@@ -30,11 +30,18 @@ class ViewSignUpComponentController{
 
     $onInit() {
         this.signup = {};
+
+    }
+    log(){
+        console.log('file is ' );
+        //console.log(scope.customer.file);
     }
     submit(){
         /*let photo = this.signup.photo; //kann leider nicht auf photo ueber ng-model zugreifen da multipart/form-data
         console.log('file is ' );
         console.dir(photo);*/
+        console.log('file is ' );
+        //console.log(this.$scope.customer);
 
         let email = this.signup.email;
         let password = this.signup.password;
@@ -42,10 +49,10 @@ class ViewSignUpComponentController{
         let lastname = this.signup.lastname;
         let description = this.signup.description;
 
-        this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
+        /*this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
             //this.UserService.upload(photo);
             this.$state.go('trips',{});
-        });
+        });*/
     }
 
     static get $inject(){

@@ -4,11 +4,11 @@ var mongoose = require('mongoose');
 // Define our tour schema
 var Trip   = new mongoose.Schema({
     title: String,
-    startdate: Date,
-    starttime: Number,
+    startdate: String,
+    starttime: String,
     location: String,
-    difficulty: Number,
-    price: Number,
+    difficulty: String,
+    price: String,
     description: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,

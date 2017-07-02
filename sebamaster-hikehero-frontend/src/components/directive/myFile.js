@@ -7,8 +7,14 @@ class MyFileComponent{
         this.restrict = "A";
         this.scope ={};
     }
-    link(scope, element, parameters){
-    console.log(parameters)
+    link(scope, element){
+        element.bind('change', function(){
+            scope.$apply(function(){
+                console.log(element[0].files[0]);
+            })
+        })
+
+
     }
 }
 export default MyFileComponent;
