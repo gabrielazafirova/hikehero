@@ -22,6 +22,7 @@ import ViewTripCreate from './components/view-trip-create/view-trip-create';
 import ViewCarousel from './components/view-carousel/view-carousel';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
+import MyFileComponent from "./components/directive/myFile";
 // import nolimits4webswiper from './components/view-carousel/angular-swiper';
 
 
@@ -40,7 +41,7 @@ let app = angular.module('app', [
     ViewCarousel.name,
     ViewLogin.name,
     ViewSignUp.name,
-]);
+]).directive("myFile", () => new MyFileComponent);
 
 
 app.constant('API_URL', 'http://localhost:3000/api');
