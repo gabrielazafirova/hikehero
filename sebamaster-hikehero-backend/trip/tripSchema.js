@@ -10,6 +10,7 @@ var Trip   = new mongoose.Schema({
     difficulty: String,
     price: String,
     description: String,
+    creator: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

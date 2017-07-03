@@ -38,7 +38,6 @@ class ViewTripsComponentController{
     isAuthenticated(){
         return this.UserService.isAuthenticated();
     };
-
     edit (trip) {
 
         if (this.UserService.isAuthenticated()) {

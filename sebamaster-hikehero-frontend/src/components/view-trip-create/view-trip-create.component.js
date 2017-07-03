@@ -33,6 +33,8 @@ class ViewTripCreateComponentController{
 
     save() {
         let user = this.UserService.getCurrentUser();
+        this.trip.creator = user.firstname;
+        console.log(this.trip.creator);
 
         this.trip['user'] = user['_id'];
         this.TripsService.create(this.trip).then(data => {
