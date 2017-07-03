@@ -1,36 +1,36 @@
-<md-grid-list
-        md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
-        md-row-height-gt-md="1:1" md-row-height="4:3"
-        md-gutter="8px" md-gutter-gt-sm="4px" >
 
-    <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips"
-                  md-rowspan="1"
-                  md-colspan="2"
-                  md-colspan-sm="1"
-                  md-colspan-xs="1"
+    <md-grid-list
+            md-cols-gt-md="12" md-cols="3" md-cols-md="8"
+            md-row-height-gt-md="1:1" md-row-height="4:3"
+            md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="2px">
 
-    <div layout="column" layout-fill>
-            <md-card layout-fill>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{trip.title}}</span>
-                    </md-card-title-text>
-                    <md-card-title-media>
-                        <div><img src="test.jpg" class="md-media-md"></div>
-                    </md-card-title-media>
-                </md-card-title>
+        <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips"
+                      md-colspan-gt-sm="4"
+                      md-rowspan-gt-sm="2"
+        >
+            <div layout="column" layout-fill>
+                <md-card ng-style="{'background-color':'grey'}">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{trip.title}}</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div><img src="test.jpg" class="md-media-md"></div>
+                        </md-card-title-media>
+                    </md-card-title>
 
-                <md-card-content>
-                    <p>{{trip.location}}</p>
-                    <p>{{trip.description}}</p>
-                </md-card-content>
+                    <md-card-content>
+                        <p>{{trip.location}}</p>
+                        <p>{{trip.description}}</p>
+                    </md-card-content>
 
 
-            </md-card>
+                </md-card>
 
-    </div>
-    </md-grid-tile>
-</md-grid-list>
+            </div>
+        </md-grid-tile>
+    </md-grid-list>
+
 
 <!--<md-list>
 

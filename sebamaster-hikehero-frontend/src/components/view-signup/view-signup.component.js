@@ -49,10 +49,10 @@ class ViewSignUpComponentController{
         let lastname = this.signup.lastname;
         let description = this.signup.description;
 
-        /*this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
+        this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
             //this.UserService.upload(photo);
             this.$state.go('trips',{});
-        });*/
+        })
     }
 
     static get $inject(){
