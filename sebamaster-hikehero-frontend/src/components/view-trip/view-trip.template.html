@@ -1,34 +1,32 @@
-<view-carousel></view-carousel>
+<div class="container">
+    <h1 class="col-8">{{ $ctrl.trip.title }}</h1>
+    <div class="col-4">
+        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+            <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+        </md-button>
 
-<md-card>
-    <md-card-title>
-        <md-card-title-media>
-            <div layout="row" layout-align="center center" layout-padding>
-                <img ng-src="{{$ctrl.getPosterURL()}}" class="md-media-md">
-            </div>
-        </md-card-title-media>
-        <md-card-title-text>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
-                    <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
-                </md-button>
+        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
+            <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+        </md-button>
+    </div>
+</div>
 
-                <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
-                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
-                </md-button>
-            </md-card-actions>
+<div class="container">
+    <div class="col-8">
+        <view-carousel></view-carousel>
+    </div>
+    <div class="col-4 hero-box">
+        <p>{{ $ctrl.trip.price }} per person</p>
+        <p>{{ $ctrl.trip.startdate }}</p>
+        {{ console.log($ctrl.trip.startdate) }}
+        <p>{{ $ctrl.trip.difficulty }} </p>
+        <button ng-click="$ctrl.alertButton()" class="btn btn-primary">Book now</button>
+    </div>
+</div>
 
-            <span class="md-headline">{{$ctrl.trip.title}}</span>
-            <span class="md-subhead">{{$ctrl.trip.price}}</span>
-
-        </md-card-title-text>
-
-    </md-card-title>
-
-    <md-card-content>
-        <p>{{$ctrl.trip.location}}</p>
-        <p>{{$ctrl.trip.description}}</p>
-    </md-card-content>
+<div>
+    <p>{{$ctrl.trip.description}}</p>
+    <p>{{$ctrl.trip.location}}</p>
+</div>
 
 
-</md-card>

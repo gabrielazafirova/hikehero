@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './view-trip.template.html';
+import './view-trip.style.css';
 import TripsService from './../../services/trips/trips.service';
 import UserService from './../../services/user/user.service';
 
@@ -76,6 +77,10 @@ class ViewTripComponentController{
 
     static get $inject(){
         return ['$state', TripsService.name, UserService.name];
+    }
+
+    alertButton(){
+        alert("Die Buchung ist noch zu implementieren.");
     }
 
 }
