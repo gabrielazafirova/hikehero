@@ -38,8 +38,9 @@ class ViewTripCreateComponentController{
 
         this.trip['user'] = user['_id'];
         this.TripsService.create(this.trip).then(data => {
-            let _id = data['_id'];
-            this.$state.go('trip',{ tripId:_id});
+            this.$state.go('trips',{});
+            /*let _id = data['_id'];
+            this.$state.go('trip',{ tripId:_id});*/
         });
 
     };

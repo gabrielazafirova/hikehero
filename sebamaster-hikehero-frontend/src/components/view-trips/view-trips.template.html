@@ -1,56 +1,67 @@
+<md-content layout-padding>
+    <div style="text-align: center">
+        <form name="searchForm">
+            <md-card>
+                <md-card-content>
+                    <div layout-gt-xs="row" id="search" style="display: inline-block">
+                        <md-input-container flex="10">
+                            <input type="text" name="location" placeholder="Where?"/>
+                        </md-input-container>
+                        <md-input-container>
+                            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="10">
+                            <input type="text" name="location" placeholder="Price Min"/>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="10">
+                            <input type="text" name="location" placeholder="Price Max"/>
+                        </md-input-container>
+                        <span>&emsp;</span>
+                        <md-input-container flex="15">
+                            <md-select id="date" name="type" ng-model="project.type" placeholder="Difficulty" layout-align="center center">
+                                <md-option value="grad1">*</md-option>
+                                <md-option value="grad2">**</md-option>
+                                <md-option value="grad3">***</md-option>
+                                <md-option value="grad4">****</md-option>
+                                <md-option value="grad5">****</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <!--<span>&emsp;</span>
+                        <md-input-container flex="10">
+                            <md-button id="test" class="md-raised md-primary" layout-align="center center">Search</md-button>
+                        </md-input-container>-->
+                    </div>
+                </md-card-content>
+            </md-card>
+        </form>
+    </div>
+</md-content>
 
-    <md-grid-list
+<md-grid-list
             md-cols-gt-md="12" md-cols="3" md-cols-md="8"
             md-row-height-gt-md="1:1" md-row-height="4:3"
             md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="2px">
-
-        <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips"
+    <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips"
                       md-colspan-gt-sm="4"
-                      md-rowspan-gt-sm="2"
-        >
-            <div layout="column" layout-fill>
-                <md-card ng-style="{'background-color':'grey', 'color':'white'}">
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">{{trip.title}}</span>
-                            <span class="md-subhead" ng-style="{'color':'white'}">Difficulty: {{trip.difficulty}}</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div><img src="test.jpg" class="md-media-md"></div>
-                        </md-card-title-media>
-                    </md-card-title>
-
-                    <md-card-content>
-                        <p>{{trip.price}}</p>
-                        <p>User: {{trip.creator}}</p>
-                    </md-card-content>
-
-
-                </md-card>
-
-            </div>
-        </md-grid-tile>
-    </md-grid-list>
-
-
-
-<!--<md-list>
-
-    <md-list-item ng-click="$ctrl.details(trip)"  ng-repeat="trip in $ctrl.trips">
-        <md-icon><ng-md-icon icon="insert_drive_file"></ng-md-icon></md-icon>
-
-        <p> {{trip.title}} </p>
-
-        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(trip)" >
-            <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
-        </md-button>
-
-        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(trip)" >
-            <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
-        </md-button>
-        <md-divider ng-if="!$last"></md-divider>
-    </md-list-item>
-    <md-divider></md-divider>
-
-</md-list>-->
-
+                      md-rowspan-gt-sm="2">
+        <div layout="column" layout-fill>
+            <md-card ng-style="{'background-color':'grey', 'color':'white'}">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" style="margin-top:-20px">{{trip.title}}</span>
+                        <span class="md-subhead" ng-style="{'color':'white'}">Difficulty: {{trip.difficulty}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div><img src="test.jpg" class="md-media-md" style="margin-top:20px"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-content>
+                    <p>{{trip.price}}</p>
+                    <p>User: {{trip.creator}}</p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-grid-tile>
+</md-grid-list>

@@ -22,7 +22,9 @@ class ViewSearchbarComponentController{
     static get $inject(){
         return ['$state'];
     }
-
+    search(){
+        this.$state.go('trips',{});
+    }
 }
 
 export default ViewSearchbarComponent;
