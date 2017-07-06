@@ -29,6 +29,11 @@ class ViewTripsComponentController{
         this.UserService = UserService;
     }
 
+    $onInit() {
+        this.search = {};
+
+    }
+
     details (trip) {
         let _id = trip['_id'];
         this.$state.go('trip',{ tripId:_id});
