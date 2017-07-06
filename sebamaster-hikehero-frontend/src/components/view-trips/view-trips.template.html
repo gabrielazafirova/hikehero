@@ -5,10 +5,10 @@
                 <md-card-content>
                     <div layout-gt-xs="row" id="search" style="display: inline-block">
                         <md-input-container flex="10">
-                            <input type="text" name="location" placeholder="Where?"/>
+                            <input type="text" ng-model="$ctrl.search.location" placeholder="Where?"/>
                         </md-input-container>
                         <md-input-container>
-                            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+                            <md-datepicker ng-model="$ctrl.search.startdate" md-placeholder="Enter date"></md-datepicker>
                         </md-input-container>
                         <span>&emsp;</span>
                         <md-input-container flex="10">
@@ -20,12 +20,12 @@
                         </md-input-container>
                         <span>&emsp;</span>
                         <md-input-container flex="15">
-                            <md-select id="date" name="type" ng-model="project.type" placeholder="Difficulty" layout-align="center center">
+                            <md-select id="date" name="type" ng-model="$ctrl.search.difficulty" placeholder="Difficulty" layout-align="center center">
                                 <md-option value="grad1">*</md-option>
                                 <md-option value="grad2">**</md-option>
                                 <md-option value="grad3">***</md-option>
                                 <md-option value="grad4">****</md-option>
-                                <md-option value="grad5">****</md-option>
+                                <md-option value="grad5">*****</md-option>
                             </md-select>
                         </md-input-container>
                         <!--<span>&emsp;</span>
@@ -43,7 +43,7 @@
             md-cols-gt-md="12" md-cols="3" md-cols-md="8"
             md-row-height-gt-md="1:1" md-row-height="4:3"
             md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="2px">
-    <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips"
+    <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips | filter:$ctrl.search"
                       md-colspan-gt-sm="4"
                       md-rowspan-gt-sm="2">
         <div layout="column" layout-fill>
