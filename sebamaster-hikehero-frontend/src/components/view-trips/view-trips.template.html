@@ -54,12 +54,15 @@
                         <span class="md-subhead" ng-style="{'color':'white'}">Difficulty: {{trip.difficulty}}</span>
                     </md-card-title-text>
                     <md-card-title-media>
-                        <div><img src="test.jpg" class="md-media-md" style="margin-top:20px"></div>
+                        <div style="text-align: center">
+                            <span>{{trip.startdate.replace("T22:00:00.000Z","")}}</span>
+                            <img src="test.jpg" class="md-media-md" >
+                        </div>
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-content>
+                    <p ng-style="{'margin-left':'125px','margin-top':'20px'}">{{trip.creator}}</p>
                     <p>{{trip.price}}</p>
-                    <p>User: {{trip.creator}}</p>
                 </md-card-content>
             </md-card>
         </div>

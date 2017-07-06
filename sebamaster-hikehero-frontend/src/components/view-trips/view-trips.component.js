@@ -27,7 +27,6 @@ class ViewTripsComponentController{
         this.$state = $state;
         this.TripsService = TripsService;
         this.UserService = UserService;
-
     }
 
     details (trip) {
