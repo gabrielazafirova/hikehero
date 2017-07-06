@@ -1,9 +1,8 @@
 <md-content layout-padding>
-    <div style="text-align: center">
         <form name="searchForm">
-            <md-card>
-                <md-card-content>
-                    <div layout-gt-xs="row" id="search" style="display: inline-block">
+            <md-card ng-style="{'background-color' : 'transparent'}">
+                <md-card-content ng-style="{'height' : '50px' , 'text-align' : 'center'}">
+                    <div layout-gt-xs="row" id="search" ng-style="{'display': 'inline-block'}">
                         <md-input-container flex="10">
                             <input type="text" name="location" placeholder="Where?"/>
                         </md-input-container>
@@ -36,7 +35,6 @@
                 </md-card-content>
             </md-card>
         </form>
-    </div>
 </md-content>
 
 <md-grid-list
@@ -50,7 +48,7 @@
             <md-card ng-style="{'background-color':'#434343', 'color':'white'}">
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline" ng-style="{'margin-top':'-20px', 'font-weight' : 'bold'}">{{trip.title}}</span>
+                        <span class="md-headline" ng-style="{'margin-top':'-20px', 'font-weight' : 'bold' , 'font-size': '100%'}">{{trip.title}}</span>
                         <span class="md-subhead" ng-style="{'color':'white'}">Difficulty: {{trip.difficulty}}</span>
                     </md-card-title-text>
                     <md-card-title-media>
