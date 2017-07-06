@@ -47,10 +47,10 @@
                       md-colspan-gt-sm="4"
                       md-rowspan-gt-sm="2">
         <div layout="column" layout-fill>
-            <md-card ng-style="{'background-color':'grey', 'color':'white'}">
+            <md-card ng-style="{'background-color':'#434343', 'color':'white'}">
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline" style="margin-top:-20px">{{trip.title}}</span>
+                        <span class="md-headline" ng-style="{'margin-top':'-20px', 'font-weight' : 'bold'}">{{trip.title}}</span>
                         <span class="md-subhead" ng-style="{'color':'white'}">Difficulty: {{trip.difficulty}}</span>
                     </md-card-title-text>
                     <md-card-title-media>
@@ -61,8 +61,8 @@
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-content>
-                    <p ng-style="{'margin-left':'150px','margin-top':'-60px'}">{{trip.creator}}</p>
-                    <p>{{trip.price}}</p>
+                    <p ng-style="{'margin-left':'150px','margin-top':'80px'}">{{trip.creator}}</p>
+                    <p ng-style="{'margin-top':'-50px', 'font-size': '200%', 'font-weight': 'bold'}">{{trip.price}}</p>
                 </md-card-content>
             </md-card>
         </div>
