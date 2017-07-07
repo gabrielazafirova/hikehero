@@ -6,7 +6,7 @@
                             <input type="text" ng-model="$ctrl.search.location" placeholder="Where?"/>
                         </md-input-container>
                         <md-input-container>
-                            <md-datepicker ng-model="$ctrl.search.startdate" md-placeholder="Enter date"></md-datepicker>
+                            <md-datepicker ng-model="$ctrl.search.startdate" ng-change="$ctrl.change()" md-placeholder="Enter date"></md-datepicker>
                         </md-input-container>
                         <span>&emsp;</span>
                         <md-input-container flex="10">
@@ -26,10 +26,10 @@
                                 <md-option value="grad5">*****</md-option>
                             </md-select>
                         </md-input-container>
-                        <!--<span>&emsp;</span>
+                        <span>&emsp;</span>
                         <md-input-container flex="10">
-                            <md-button id="test" class="md-raised md-primary" layout-align="center center">Search</md-button>
-                        </md-input-container>-->
+                            <md-button class="md-raised md-primary" layout-align="center center" ng-click="$ctrl.reset()">Reset</md-button>
+                        </md-input-container>
                     </div>
                 </md-card-content>
             </md-card>
@@ -50,7 +50,7 @@
                     </md-card-title-text>
                     <md-card-title-media>
                         <div style="text-align: center">
-                            <span>{{trip.startdate.replace("T22:00:00.000Z","")}}</span>
+                            <span>{{trip.startdate.replace("00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)","")}}</span>
                             <img src="RundResize.png" class="md-media-md" >
                         </div>
                     </md-card-title-media>

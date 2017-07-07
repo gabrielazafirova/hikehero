@@ -34,6 +34,19 @@ class ViewTripsComponentController{
 
     }
 
+    change(){
+        console.log("Change test");
+        var toString = this.search.startdate.toString();
+        this.search.startdate = toString;
+        console.log(this.search.startdate);
+    }
+
+    reset(){
+        console.log("reset test");
+        this.search = {};
+        console.log(this.search);
+    }
+
     details (trip) {
         let _id = trip['_id'];
         this.$state.go('trip',{ tripId:_id});

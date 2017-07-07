@@ -36,6 +36,10 @@ class ViewTripCreateComponentController{
         this.trip.creator = user.firstname;
         console.log(this.trip.creator);
 
+        var toString = this.trip.startdate.toString();
+        this.trip.startdate = toString;
+        console.log(this.trip.startdate);
+
         this.trip['user'] = user['_id'];
         this.TripsService.create(this.trip).then(data => {
             this.$state.go('trips',{});
