@@ -28,13 +28,14 @@ app.use(bodyParser.urlencoded({
 var passport = require('passport');
 var jwtConfig = require('./passport/jwtConfig');
 app.use(passport.initialize());
-jwtConfig(passport);
+jwtConfig(passport); 
 
 /**
  * routing
  */
 var userRoutes = require("./user/userRoutes");
 var tripRoutes = require("./trip/tripRoutes");
+var bookingRoutes = require("./booking/bookingRoutes");
 app.use('/api/trips', tripRoutes(passport));
 app.use('/api/user', userRoutes(passport));
 module.exports = app;
