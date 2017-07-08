@@ -4,6 +4,7 @@ module.exports = tripRoutes;
 function tripRoutes(passport) {
 
     var tripController = require('./tripController');
+    var questionController = require('./questionController');
     var router = require('express').Router();
     var unless = require('express-unless');
 
@@ -23,11 +24,11 @@ function tripRoutes(passport) {
         .delete(tripController.deleteTrip);
 
     router.route('/:trip_id/questions')
-        .get(tripController.getQuestions)
-        .post(tripController.postQuestion);
+        .get(questionController.getQuestions)
+        .post(questionController.postQuestion);
 
     router.route('/:trip_id/questions/:question_id')
-        .post(tripController.answerQuestion);
+        .post(questionController.answerQuestion);
 
     return router;
 }
