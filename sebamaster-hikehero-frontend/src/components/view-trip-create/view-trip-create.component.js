@@ -60,7 +60,6 @@ class ViewTripCreateComponentController{
         r.readAsDataURL(f);
     }
 
-
     static get $inject(){
         return ['$state', TripsService.name, UserService.name];
     }

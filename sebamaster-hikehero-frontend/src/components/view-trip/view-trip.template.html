@@ -30,6 +30,20 @@
     <p>Created by {{$ctrl.trip.creator}}</p>
 </div>
 
+<h1>Questions</h1>
+
+<div class="col-12 hero-box">
+    <ul ng-repeat="question in $ctrl.questions">
+        <li>{{question.content}}</li>
+    </ul>
+
+    <form ng-submit="$ctrl.postQuestion()" autocomplete="off">
+        <md-input-container>
+            <input ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
+        </md-input-container>
+    </form>
+</div>
+
 <!--
 
 <div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak>

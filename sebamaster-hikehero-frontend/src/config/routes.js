@@ -21,6 +21,11 @@ function resolveTrips(tripsService){
     return tripsService.list();
 }
 
+resolveQuestions.$inject = ['$stateParams', TripsService.name];
+function resolveQuestions($stateParams,tripsService){
+    return tripsService.getQuestions($stateParams.tripId);
+}
+
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
@@ -48,7 +53,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/trips/:tripId',
             component: TripComponent.name,
             resolve: {
-                trip : resolveTrip
+                trip : resolveTrip,
+                questions: resolveQuestions
             }
         })
         .state('tripEdit', {

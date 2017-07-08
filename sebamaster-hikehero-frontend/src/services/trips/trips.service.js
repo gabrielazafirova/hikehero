@@ -77,5 +77,32 @@ export default class TripsService {
         })
     }
 
+    getQuestions(tripId) {
+        let url = `${ this.resourceUrl }${ tripId }/questions`;
+        return this.$http.get(url).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+        });
+    }
+
+    postQuestion(tripId, question) {
+        let url = `${ this.resourceUrl }${ tripId }/questions`;
+        return this.$http.post(url, question).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+        });
+    }
+
+    answerQuestion(tripId, questionId, answer) {
+        let url = `${ this.resourceUrl }${ tripId }/questions/${ questionId }`;
+        return this.$http.post(url, answer).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+        });
+    }
+
 
 }

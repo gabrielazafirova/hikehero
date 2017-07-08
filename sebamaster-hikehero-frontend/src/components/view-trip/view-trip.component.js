@@ -12,6 +12,7 @@ class ViewTripComponent {
         this.template = template;
         this.bindings = {
             trip: '<',
+            questions: '<',
         }
 
     }
@@ -28,7 +29,7 @@ class ViewTripComponentController{
         this.$state = $state;
         this.TripsService = TripsService;
         this.UserService = UserService;
-
+        this.question = {};
     }
 
     openWindow(h, w, url) {
@@ -80,6 +81,21 @@ class ViewTripComponentController{
             }
         }
         return posterURL;
+    }
+
+    postQuestion() {
+        if (this.question.isEmpty()) return;
+        this.question.timeAsked = new Date().toDateString();
+        this.TripsService.postQuestion(this.trip['_id'], this.question).then(response => {
+            this.question = {};
+            this.reloadQuestions();
+        });
+    }
+
+    reloadQuestions() {
+        this.TripsService.getQuestions(this.trip['_id']).then(data => {
+            this.questions = data;
+        });
     }
 
     static get $inject(){
