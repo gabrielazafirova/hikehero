@@ -4,6 +4,7 @@
 import template from './view-trip.template.html';
 import TripsService from './../../services/trips/trips.service';
 import UserService from './../../services/user/user.service';
+import './view-trip.style.css';
 
 class ViewTripComponent {
     constructor(){
