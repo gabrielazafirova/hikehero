@@ -76,7 +76,7 @@ export default class TripsService {
 
         })
     }
-    
+
     getQuestions(tripId) {
         let url = `${ this.resourceUrl }${ tripId }/questions`;
         return this.$http.get(url).then(response => {
@@ -104,15 +104,22 @@ export default class TripsService {
         });
     }
 
-    createBooking(booking) {
-        let url = `${ this.resourceUrl }${ trip['_id'] }/bookings`
-        return this.$http.post(url,booking).then(responce => {
-
+    getBookings(tripId) {
+        let url = `${ this.resourceUrl }${ tripId }/bookings`;
+        return this.$http.get(url).then(response => {
             return new Promise((resolve, reject) => {
-                resolve(responce.data);
+                resolve(response.data);
             });
+        });
+    }
 
-        })
+    postBooking(tripId, booking) {
+        let url = `${ this.resourceUrl }${ tripId }/bookings`
+        return this.$http.post(url, booking).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+        });
     }
 
 }

@@ -2,7 +2,7 @@
 
 import template from './view-carousel.template.html';
 import './view-carousel.style.css';
-import Swiper from 'swiper'; // Module Swiper wurde nicht gefunden
+import Swiper from 'swiper';
 
 class ViewCarouselComponent {
     constructor(){

@@ -14,19 +14,15 @@ class ViewTripComponent {
             trip: '<',
             questions: '<',
         }
-
     }
 
     static get name() {
         return 'viewTrip';
     }
-
-
 }
 
-
 class ViewTripComponentController{
-    constructor($state,TripsService,UserService){
+    constructor($state,TripsService,UserService) {
         this.booking = {};
         this.$state = $state;
         this.TripsService = TripsService;
@@ -36,14 +32,34 @@ class ViewTripComponentController{
         this.answer = "";
     }
 
-    openDialog() {
-        let modal = document.getElementById('myModal');
+    openPaymentBox() {
+        let modal = document.getElementById('paymentBox');
         modal.style.display = "block";
     };
 
-    closeDialog() {
-        let modal = document.getElementById('myModal');
+    closePaymentBox() {
+        let modal = document.getElementById('paymentBox');
         modal.style.display = "none";
+    };
+
+    openSuccessBox() {
+        this.closePaymentBox();
+        let modal = document.getElementById('successBox');
+        modal.style.display = "block";
+    };
+
+    closeSuccessBox() {
+        let modal = document.getElementById('successBox');
+        modal.style.display = "none";
+    };
+
+    saveBooking() {
+        let user = this.UserService.getCurrentUser();
+        this.booking['trip'] = this.trip['_id'];
+        this.booking['user'] = user['_id'];
+        this.TripsService.postBooking(this.trip['_id'], this.booking).then(response => {
+            this.openSuccessBox();
+        });
     };
 
     edit () {

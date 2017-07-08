@@ -25,11 +25,8 @@ import ViewSignUp from './components/view-signup/view-signup';
 import MyFileComponent from './components/directive/myFile';
 import ViewLandingpage from './components/view-landingpage/view-landingpage';
 import ViewSearchbar from './components/view-searchbar/view-searchbar';
-// import nolimits4webswiper from './components/view-carousel/angular-swiper';
-
 
 let app = angular.module('app', [
-    // nolimits4webswiper,
     uiRouter,
     angularMaterial,
     ngMdIcons,

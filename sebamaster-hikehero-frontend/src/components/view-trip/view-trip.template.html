@@ -16,11 +16,12 @@
         <view-carousel></view-carousel>
     </div>
     <div class="col-4 hero-box">
-        <p>{{ $ctrl.trip.price }} per person</p>
+        <p>{{ $ctrl.trip.price }}€ per person</p>
         <p>{{ $ctrl.trip.startdate }}</p>
         {{ console.log($ctrl.trip.startdate) }}
         <p>{{ $ctrl.trip.difficulty }} </p>
-        <button ng-click="$ctrl.openWindow(300, 300, 'google.com')" class="btn btn-primary">Book now</button>
+        <!-- Open The Modal -->
+        <button ng-click="$ctrl.openPaymentBox()" class="btn btn-primary">Book now</button>
     </div>
 </div>
 
@@ -58,35 +59,56 @@
     </div>
 </div>
 
+<!-- Payment Box -->
+<div id="paymentBox" class="modal">
 
-<!-- Trigger/Open The Modal -->
-<button ng-click="$ctrl.openDialog()">Open Modal</button>
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
     <div class="modal-content">
-        <button ng-click="$ctrl.closeDialog()">x</button>
-        <p>Some text in the Modal..</p>
+        <button ng-click="$ctrl.closePaymentBox()">&times;</button>
         <div layout="column">
             <md-content>
                 <form>
                     <div>
                         <md-input-container layout="row" flex layout-padding>
-                            <div flex="30">Title:</div>
-                            <input type="text" ng-model="$ctrl.trip.title" flex>
+                            <div flex="30">First Name:</div>
+                            <input type="text" ng-model="$ctrl.booking.cardFirstName" flex>
+                        </md-input-container>
+                        <md-input-container layout="row" flex layout-padding>
+                            <div flex="30">Last Name:</div>
+                            <input type="text" ng-model="$ctrl.booking.cardLastName" flex>
                         </md-input-container>
                         <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
-                            <div flex="80">Difficulty:</div>
+                            <div flex="80">Card Type:</div>
                             <div flex>
-                                <md-select id="date" name="type" ng-model="$ctrl.trip.difficulty">
-                                    <md-option value="grad1">*</md-option>
-                                    <md-option value="grad2">**</md-option>
-                                    <md-option value="grad3">***</md-option>
-                                    <md-option value="grad4">****</md-option>
-                                    <md-option value="grad5">*****</md-option>
+                                <md-select id="date" name="type" ng-model="$ctrl.booking.cardType">
+                                    <md-option value="Visa">Visa</md-option>
+                                    <md-option value="American Express">American Express</md-option>
+                                </md-select>
+                            </div>
+                        </md-input-container>
+                        <md-input-container layout="row" flex layout-padding>
+                            <div flex="30">Credit Card Number:</div>
+                            <input type="text" ng-model="$ctrl.booking.cardNumber" flex>
+                        </md-input-container>
+                        <md-input-container layout="row" flex layout-padding>
+                            <div flex="30">Approval Number:</div>
+                            <input type="text" ng-model="$ctrl.booking.cardApprovalNumber" flex>
+                        </md-input-container>
+                        <p>Valid Until:</p>
+                        <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
+                            <div flex="40">Month:</div>
+                            <div flex>
+                                <md-select id="date" name="type" ng-model="$ctrl.booking.cardValidUntilMonth">
+                                    <md-option value="1">1</md-option>
+                                    <md-option value="2">2</md-option>
+                                </md-select>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
+                            <div flex="40">Year:</div>
+                            <div flex>
+                                <md-select id="date" name="type" ng-model="$ctrl.booking.cardValidUntilYear">
+                                    <md-option value="2018">2018</md-option>
+                                    <md-option value="2019">2019</md-option>
                                 </md-select>
                             </div>
                         </md-input-container>
@@ -94,8 +116,8 @@
                 </form>
                 <div layout="row">
                     <span flex></span>
-                    <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Confirm</md-button>
-                    <md-button class="md-raised" ng-click="$ctrl.closeDialog()">Cancel</md-button>
+                    <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveBooking()">Confirm</md-button>
+                    <md-button class="md-raised" ng-click="$ctrl.closePaymentBox()">Cancel</md-button>
                 </div>
             </md-content>
 
@@ -103,4 +125,23 @@
 
     </div>
 
+</div>
+
+<!-- Success Box -->
+
+<div id="successBox" class="modal">
+    <div class="modal-content">
+        <button ng-click="$ctrl.closeSuccessBox()">&times;</button>
+        <div layout="column">
+            <md-content>
+                <div layout="row">
+                    <p>Booking successful!</p>
+                </div>
+                <div layout="row">
+                    <span flex></span>
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.closeSuccessBox()">Done</md-button>
+                </div>
+            </md-content>
+        </div>
+    </div>
 </div>
