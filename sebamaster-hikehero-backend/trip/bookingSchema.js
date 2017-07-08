@@ -6,10 +6,10 @@ var Booking   = new mongoose.Schema({
     cardFirstName: String,
     cardLastName: String,
     cardType: String,
-    cardNumber: Int,
-    cardApprovalNumber: Int,
-    cardValidUntilMonth: Int,
-    cardValidUntilYear: Int,
+    cardNumber: Number,
+    cardApprovalNumber: Number,
+    cardValidUntilMonth: Number,
+    cardValidUntilYear: Number,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

@@ -1,9 +1,9 @@
 // importing Booking and User model
-var Booking = require('../trip/bookingSchema');
+var Booking = require('./bookingSchema');
 var User = require('../user/userSchema');
 var Trip = require('../trip/tripSchema');
 
-// Create endpoint /api//trips/:trip_id/bookings for GET
+// Create endpoint /api/trips/:trip_id/bookings for GET
 exports.postBooking = function(req, res) {
     var booking = new Booking(req.body);
     booking.trip = req.params.trip_id;
@@ -16,7 +16,7 @@ exports.postBooking = function(req, res) {
         res.status(201).json(m);
     });
 };
-// Create endpoint /api//trips/:trip_id/bookings for GET
+// Create endpoint /api/trips/:trip_id/bookings for GET
 exports.getBookings = function(req, res) {
     booking.find(function(err, bookings) {
         if (err) {

@@ -5,6 +5,7 @@ function tripRoutes(passport) {
 
     var tripController = require('./tripController');
     var questionController = require('./questionController');
+    var bookingController = require('./bookingController');
     var router = require('express').Router();
     var unless = require('express-unless');
 
@@ -29,6 +30,11 @@ function tripRoutes(passport) {
 
     router.route('/:trip_id/questions/:question_id')
         .post(questionController.answerQuestion);
+
+
+    router.route('/:trip_id/bookings')
+        .get(bookingController.getBookings)
+        .post(bookingController.postBooking);
 
     return router;
 }
