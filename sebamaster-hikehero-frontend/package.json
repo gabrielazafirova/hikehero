@@ -36,7 +36,8 @@
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
     "file-loader": "^0.11.2",
-    "swiper": "^3.4.2"
+    "swiper": "^3.4.2",
+    "ngmap": "^1.18.4"
   },
   "engines": {
     "node": ">=4.3"

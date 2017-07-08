@@ -7,6 +7,7 @@ import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
+import ngMap from 'ngmap';
 
 import TripsService from './services/trips/trips';
 import UserService from './services/user/user';
@@ -30,6 +31,7 @@ let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    ngMap,
     UserService.name,
     TripsService.name,
     AppContent.name,
