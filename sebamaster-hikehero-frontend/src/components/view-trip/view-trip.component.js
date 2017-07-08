@@ -31,6 +31,13 @@ class ViewTripComponentController{
 
     }
 
+    openWindow(h, w, url) {
+    var leftOffset = (screen.width/2) - w/2;
+    var topOffset = (screen.height/2) - h/2;
+    window.open(url, this.target, 'left=' + leftOffset + ',top=' + topOffset + ',width=' + w + ',height=' + h + ',resizable,scrollbars=yes');
+
+    };
+
     edit () {
 
         if (this.UserService.isAuthenticated()) {
