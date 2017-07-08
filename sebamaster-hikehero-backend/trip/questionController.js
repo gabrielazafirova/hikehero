@@ -8,7 +8,8 @@ exports.getQuestions = function(req, res) {
         if (err) {
             res.status(400).send(err);
             return;
-        }on(questions);
+        }
+        res.json(questions);
     });
 };
 
@@ -33,7 +34,7 @@ exports.answerQuestion = function(req, res) {
             res.status(400).send(err);
             return;
         }
-        question.answer = req.body;
+        question.answer = req.body.answer;
         question.save(function(err, question) {
             if (err) {
                 res.status(400).send(err);

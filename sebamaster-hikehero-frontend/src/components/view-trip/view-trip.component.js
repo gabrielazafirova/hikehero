@@ -32,6 +32,8 @@ class ViewTripComponentController{
         this.TripsService = TripsService;
         this.UserService = UserService;
         this.question = {};
+        this.questionReplyingID = "";
+        this.answer = "";
     }
 
     openDialog() {
@@ -72,6 +74,10 @@ class ViewTripComponentController{
         return this.UserService.isAuthenticated();
     };
 
+    isTripCreator() {
+        return this.UserService.getCurrentUser()._id == this.trip.user;
+    };
+
     getPosterURL(){
         let posterURL = 'http://placehold.it/32x32';
         if (this.trip.hasOwnProperty('posters')) {
@@ -89,16 +95,29 @@ class ViewTripComponentController{
     }
 
     postQuestion() {
-        if (this.question.isEmpty()) return;
+        if (!this.question.content) return;
         this.question.timeAsked = new Date().toDateString();
-        this.TripsService.postQuestion(this.trip['_id'], this.question).then(response => {
+        this.TripsService.postQuestion(this.trip._id, this.question).then(response => {
             this.question = {};
             this.reloadQuestions();
         });
     }
 
+    typeAnswerToQuestion(questionId) {
+        this.questionReplyingID = questionId;
+    }
+
+    postAnswer() {
+        if (!this.answer) return;
+        this.TripsService.answerQuestion(this.trip._id, this.questionReplyingID, this.answer).then(response => {
+            this.answer = "";
+            this.questionReplyingID = "";
+            this.reloadQuestions();
+        });
+    }
+
     reloadQuestions() {
-        this.TripsService.getQuestions(this.trip['_id']).then(data => {
+        this.TripsService.getQuestions(this.trip._id).then(data => {
             this.questions = data;
         });
     }

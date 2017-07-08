@@ -30,19 +30,34 @@
     <p>Created by {{$ctrl.trip.creator}}</p>
 </div>
 
-<h1>Questions</h1>
+<div ng-if="$ctrl.UserService.isAuthenticated()">
+    <h1>Questions</h1>
+    <div class="col-12 hero-box">
+        <ul ng-repeat="question in $ctrl.questions">
+            <li>
+                <p>{{question.questioner.firstname}} {{question.questioner.lastname}}</p>
+                <p>{{question.content}}</p>
+                <div ng-if="question.answer">
+                    <p ng-style="{'margin-left' : '2em'}">{{$ctrl.trip.creator}}</p>
+                    <p ng-style="{'margin-left' : '2em'}">{{question.answer}}</p>
+                </div>
+                <button ng-if="$ctrl.isTripCreator() && $ctrl.questionReplyingID != question._id && !question.answer" ng-click="$ctrl.typeAnswerToQuestion(question._id)">Reply</button>
+                <form ng-submit="$ctrl.postAnswer()" autocomplete="off" ng-if="$ctrl.questionReplyingID == question._id">
+                    <md-input-container>
+                        <input ng-model="$ctrl.answer" type="text" placeholder="Type a reply ...">
+                    </md-input-container>
+                </form>
+            </li>
+        </ul>
 
-<div class="col-12 hero-box">
-    <ul ng-repeat="question in $ctrl.questions">
-        <li>{{question.content}}</li>
-    </ul>
-
-    <form ng-submit="$ctrl.postQuestion()" autocomplete="off">
-        <md-input-container>
-            <input ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
-        </md-input-container>
-    </form>
+        <form ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator()">
+            <md-input-container>
+                <input ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
+            </md-input-container>
+        </form>
+    </div>
 </div>
+
 
 <!-- Trigger/Open The Modal -->
 <button ng-click="$ctrl.openDialog()">Open Modal</button>

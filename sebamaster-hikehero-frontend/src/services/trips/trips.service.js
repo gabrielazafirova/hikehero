@@ -97,7 +97,7 @@ export default class TripsService {
 
     answerQuestion(tripId, questionId, answer) {
         let url = `${ this.resourceUrl }${ tripId }/questions/${ questionId }`;
-        return this.$http.post(url, answer).then(response => {
+        return this.$http.post(url, { "answer" : answer }).then(response => {
             return new Promise((resolve, reject) => {
                 resolve(response.data);
             });
