@@ -4,15 +4,11 @@ var User = require('../user/userSchema');
 
 // Create endpoint /api/trips/:trip_id/questions for GET
 exports.getQuestions = function(req, res) {
-    Question.find({ trip: req.params.trip_id }, function(err, questions) {
+    Question.find({ trip: req.params.trip_id }).populate('questioner').exec(function(err, questions) {
         if (err) {
             res.status(400).send(err);
             return;
-        }
-        questions.forEach(function (question) {
-            question["questioner"] = User.findById(question["questioner"]);
-        });
-        res.json(questions);
+        }on(questions);
     });
 };
 
