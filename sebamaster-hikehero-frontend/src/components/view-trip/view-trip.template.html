@@ -44,48 +44,48 @@
     </form>
 </div>
 
-<!--
+<!-- Trigger/Open The Modal -->
+<button ng-click="$ctrl.openDialog()">Open Modal</button>
 
-<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak>
-    <p class="inset">
-        Open a dialog over the app's content. Press escape or click outside to close the dialog and
-        send focus back to the triggering button.
-    </p>
 
-    <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
-        <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
-            Custom Dialog
-        </md-button>
-    </div>
-    <div ng-if="status" id="status">
-        <b layout="row" layout-align="center center" class="md-padding">
-            {{status}}
-        </b>
-    </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-    <div class="dialog-demo-prerendered">
-        <md-checkbox ng-model="listPrerenderedButton">Show Pre-Rendered Dialog</md-checkbox>
-        <p class="md-caption">Sometimes you may not want to compile the dialogs template on each opening.</p>
-        <md-checkbox ng-model="customFullscreen" aria-label="Fullscreen custom dialog">Use full screen mode for custom dialog</md-checkbox>
-        <p class="md-caption">Allows the dialog to consume all available space on small devices</p>
-    </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <button ng-click="$ctrl.closeDialog()">x</button>
+        <p>Some text in the Modal..</p>
+        <div layout="column">
+            <md-content>
+                <form>
+                    <div>
+                        <md-input-container layout="row" flex layout-padding>
+                            <div flex="30">Title:</div>
+                            <input type="text" ng-model="$ctrl.trip.title" flex>
+                        </md-input-container>
+                        <md-input-container class="create_trip" layout="row" flex="33" layout-padding>
+                            <div flex="80">Difficulty:</div>
+                            <div flex>
+                                <md-select id="date" name="type" ng-model="$ctrl.trip.difficulty">
+                                    <md-option value="grad1">*</md-option>
+                                    <md-option value="grad2">**</md-option>
+                                    <md-option value="grad3">***</md-option>
+                                    <md-option value="grad4">****</md-option>
+                                    <md-option value="grad5">*****</md-option>
+                                </md-select>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </form>
+                <div layout="row">
+                    <span flex></span>
+                    <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Confirm</md-button>
+                    <md-button class="md-raised" ng-click="$ctrl.closeDialog()">Cancel</md-button>
+                </div>
+            </md-content>
 
-    <div style="visibility: hidden">
-        <div class="md-dialog-container" id="myDialog">
-            <md-dialog layout-padding>
-                <h2>Pre-Rendered Dialog</h2>
-                <p>
-                    This is a pre-rendered dialog, which means that <code>$mdDialog</code> doesn't compile its
-                    template on each opening.
-                    <br/><br/>
-                    The Dialog Element is a static element in the DOM, which is just visually hidden.<br/>
-                    Once the dialog opens, we just fetch the element from the DOM into our dialog and upon close
-                    we restore the element back into its old DOM position.
-                </p>
-            </md-dialog>
         </div>
+
     </div>
 
 </div>
-
--->

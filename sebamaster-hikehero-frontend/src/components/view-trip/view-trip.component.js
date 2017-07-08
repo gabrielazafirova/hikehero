@@ -24,19 +24,24 @@ class ViewTripComponent {
 
 }
 
+
 class ViewTripComponentController{
     constructor($state,TripsService,UserService){
+        this.booking = {};
         this.$state = $state;
         this.TripsService = TripsService;
         this.UserService = UserService;
         this.question = {};
     }
 
-    openWindow(h, w, url) {
-    var leftOffset = (screen.width/2) - w/2;
-    var topOffset = (screen.height/2) - h/2;
-    window.open(url, this.target, 'left=' + leftOffset + ',top=' + topOffset + ',width=' + w + ',height=' + h + ',resizable,scrollbars=yes');
+    openDialog() {
+        let modal = document.getElementById('myModal');
+        modal.style.display = "block";
+    };
 
+    closeDialog() {
+        let modal = document.getElementById('myModal');
+        modal.style.display = "none";
     };
 
     edit () {
@@ -103,6 +108,5 @@ class ViewTripComponentController{
     }
 
 }
-
 
 export default ViewTripComponent;

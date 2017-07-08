@@ -24,17 +24,16 @@ function tripRoutes(passport) {
         .put(tripController.putTrip)
         .delete(tripController.deleteTrip);
 
+    router.route('/:trip_id/bookings')
+        .get(bookingController.getBookings)
+        .post(bookingController.postBooking);
+
     router.route('/:trip_id/questions')
         .get(questionController.getQuestions)
         .post(questionController.postQuestion);
 
     router.route('/:trip_id/questions/:question_id')
         .post(questionController.answerQuestion);
-
-
-    router.route('/:trip_id/bookings')
-        .get(bookingController.getBookings)
-        .post(bookingController.postBooking);
 
     return router;
 }
