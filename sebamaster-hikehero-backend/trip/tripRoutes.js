@@ -22,5 +22,12 @@ function tripRoutes(passport) {
         .put(tripController.putTrip)
         .delete(tripController.deleteTrip);
 
+    router.route('/:trip_id/questions')
+        .get(tripController.getQuestions)
+        .post(tripController.postQuestion);
+
+    router.route('/:trip_id/questions/:question_id')
+        .post(tripController.answerQuestion);
+
     return router;
 }
