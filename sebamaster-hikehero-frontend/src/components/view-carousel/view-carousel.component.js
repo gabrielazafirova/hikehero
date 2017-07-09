@@ -27,6 +27,7 @@ class ViewCarouselComponentController{
             // Optional parameters
             direction: 'horizontal',
             loop: true,
+            lazyLoading: true,
 
             // If we need pagination
             pagination: '.swiper-pagination',
