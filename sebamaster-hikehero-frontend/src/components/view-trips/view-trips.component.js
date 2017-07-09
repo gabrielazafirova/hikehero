@@ -27,15 +27,24 @@ class ViewTripsComponentController{
         this.$state = $state;
         this.TripsService = TripsService;
         this.UserService = UserService;
-    }
-
-    $onInit() {
         this.search = {};
-    }
-
-    createDummyCoordinates() {
-        this.search.lat = 48.892699;
-        this.search.lon = 11.187858;
+        var _this = this;
+        this.customFilter = function(trip) {
+            console.log(_this.search == {})
+            if(_this.search == {}) {
+                return true;
+            }
+            if(trip.price < _this.search.minPrice) {
+                return false;
+            }
+            if(trip.price > _this.search.maxPrice) {
+                return false;
+            }
+            if(trip.startdate != _this.search.startdate & _this.search.startdate != undefined) {
+                return false;
+            }
+            return true;
+        }
     }
 
     change(){
@@ -43,13 +52,13 @@ class ViewTripsComponentController{
         var toString = this.search.startdate.toString();
         this.search.startdate = toString;
         console.log(this.search.startdate);
-    }
+    };
 
     reset(){
         console.log("reset test");
         this.search = {};
         console.log(this.search);
-    }
+    };
 
     details(trip) {
         let _id = trip['_id'];
@@ -59,6 +68,7 @@ class ViewTripsComponentController{
     isAuthenticated(){
         return this.UserService.isAuthenticated();
     };
+
     edit (trip) {
 
         if (this.UserService.isAuthenticated()) {
@@ -77,8 +87,7 @@ class ViewTripsComponentController{
             this.$state.go('login',{});
         }
 
-    }
-
+    };
 
     delete(trip) {
         if (this.UserService.isAuthenticated()) {
@@ -93,7 +102,6 @@ class ViewTripsComponentController{
             this.$state.go('login',{});
         }
     };
-
 
     static get $inject(){
         return ['$state', TripsService.name, UserService.name];

@@ -5,17 +5,16 @@
                         <md-input-container flex="10">
                             <input type="text" ng-model="$ctrl.search.location" placeholder="Where?"/>
                         </md-input-container>
-                        <button ng-click="$ctrl.createDummyCoordinates()">Create dummy coordinates</button>
                         <md-input-container>
                             <md-datepicker ng-model="$ctrl.search.startdate" ng-change="$ctrl.change()" md-placeholder="Enter date"></md-datepicker>
                         </md-input-container>
                         <span>&emsp;</span>
                         <md-input-container flex="10">
-                            <input type="text" name="location" placeholder="Price Min"/>
+                            <input type="text" ng-model="$ctrl.search.minPrice" placeholder="Price Min"/>
                         </md-input-container>
                         <span>&emsp;</span>
                         <md-input-container flex="10">
-                            <input type="text" name="location" placeholder="Price Max"/>
+                            <input type="text" ng-model="$ctrl.search.maxPrice" placeholder="Price Max"/>
                         </md-input-container>
                         <span>&emsp;</span>
                         <md-input-container flex="15">
@@ -40,7 +39,7 @@
             md-cols-gt-md="12" md-cols="3" md-cols-md="8"
             md-row-height-gt-md="1:1" md-row-height="4:3"
             md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="2px">
-    <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips | filter:$ctrl.search"
+    <md-grid-tile ng-click="$ctrl.details(trip)" ng-repeat="trip in $ctrl.trips | filter:$ctrl.customFilter"
                       md-colspan-gt-sm="4"
                       md-rowspan-gt-sm="2">
         <div layout="column" layout-fill>
