@@ -43,7 +43,7 @@ class AppHeaderComponentController{
 
 
     goHome(){
-        this.$state.go('home',{});
+        this.$state.go('trips',{});
     }
 
     goTrips(){
@@ -60,7 +60,7 @@ class AppHeaderComponentController{
 
     logout(){
         this.UserService.logout();
-        this.$state.go('home',{});
+        this.$state.go('trips',{});
     }
 
     create_tour(){

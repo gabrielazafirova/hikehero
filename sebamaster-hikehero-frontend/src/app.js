@@ -24,7 +24,6 @@ import ViewCarousel from './components/view-carousel/view-carousel';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
 import MyFileComponent from './components/directive/myFile';
-import ViewLandingpage from './components/view-landingpage/view-landingpage';
 import ViewSearchbar from './components/view-searchbar/view-searchbar';
 
 let app = angular.module('app', [
@@ -42,7 +41,6 @@ let app = angular.module('app', [
     ViewCarousel.name,
     ViewLogin.name,
     ViewSignUp.name,
-    ViewLandingpage.name,
     ViewSearchbar.name,
 ]).directive("myFile", () => new MyFileComponent);
 
