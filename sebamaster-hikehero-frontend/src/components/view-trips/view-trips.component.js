@@ -31,7 +31,11 @@ class ViewTripsComponentController{
 
     $onInit() {
         this.search = {};
+    }
 
+    createDummyCoordinates() {
+        this.search.lat = 48.892699;
+        this.search.lon = 11.187858;
     }
 
     change(){
@@ -47,7 +51,7 @@ class ViewTripsComponentController{
         console.log(this.search);
     }
 
-    details (trip) {
+    details(trip) {
         let _id = trip['_id'];
         this.$state.go('trip',{ tripId:_id});
     };
