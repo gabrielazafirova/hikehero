@@ -33,17 +33,27 @@ class ViewTripsComponentController{
             if(_this.search == {}) {
                 return true;
             }
+            if(trip.startdate != _this.search.startdate & _this.search.startdate != undefined) {
+                return false;
+            }
             if(trip.price < _this.search.minPrice) {
                 return false;
             }
             if(trip.price > _this.search.maxPrice) {
                 return false;
             }
-            if(trip.startdate != _this.search.startdate & _this.search.startdate != undefined) {
+            if(trip.difficulty != _this.search.difficulty & _this.search.difficulty != undefined) {
                 return false;
             }
-            // if(distanceInKmBetweenEarthCoordinates(_this.search.lat, _this.search.lon, trip.lat, trip.lon) > _this.search.distance)
+            if(_this.distanceInKmBetweenEarthCoordinates(_this.search.lat, _this.search.lon, trip.lat, trip.lon) > _this.search.distance) {
+                return false;
+            }
             return true;
+        }
+        this.placeChanged = function() {
+            _this.search.location = this.getPlace().formatted_address;
+            _this.search.lat = this.getPlace().geometry.location.lat();
+            _this.search.lon = this.getPlace().geometry.location.lng();
         }
     }
 
