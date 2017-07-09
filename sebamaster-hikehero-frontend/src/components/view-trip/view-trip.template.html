@@ -43,8 +43,8 @@
 
     <div ng-if="$ctrl.tabState == 2" map-lazy-load="https://maps.google.com/maps/api/js">
         <p>{{$ctrl.trip.location}}</p>
-        <ng-map center="48.892699, 11.187858" zoom="5">
-            <marker position="48.892699, 11.187858" title="Hello World!"></marker>
+        <ng-map center="[{{$ctrl.trip.lat}}, {{$ctrl.trip.lon}}]" zoom="10">
+            <marker position="[{{$ctrl.trip.lat}}, {{$ctrl.trip.lon}}]" title={{$ctrl.trip.location}}></marker>
         </ng-map>
     </div>
 

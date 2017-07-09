@@ -22,6 +22,12 @@ class ViewTripCreateComponent {
 class ViewTripCreateComponentController{
     constructor($state, TripsService,UserService){
         this.trip = {};
+        var _this = this;
+        this.placeChanged = function() {
+            _this.trip.location = this.getPlace().formatted_address;
+            _this.trip.lat = this.getPlace().geometry.location.lat();
+            _this.trip.lon = this.getPlace().geometry.location.lng();
+        }
         this.$state = $state;
         this.TripsService = TripsService;
         this.UserService = UserService;
