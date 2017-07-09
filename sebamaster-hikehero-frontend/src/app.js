@@ -8,6 +8,7 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 import ngMap from 'ngmap';
+import googleplaces from 'angular-google-places-autocomplete';
 
 import TripsService from './services/trips/trips';
 import UserService from './services/user/user';
@@ -32,6 +33,7 @@ let app = angular.module('app', [
     angularMaterial,
     ngMdIcons,
     ngMap,
+    googleplaces,
     UserService.name,
     TripsService.name,
     AppContent.name,
