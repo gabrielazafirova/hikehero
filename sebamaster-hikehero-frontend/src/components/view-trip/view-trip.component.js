@@ -30,6 +30,7 @@ class ViewTripComponentController{
         this.question = {};
         this.questionReplyingID = "";
         this.answer = "";
+        this.tabState = 0;
     }
 
     openPaymentBox() {
@@ -60,6 +61,22 @@ class ViewTripComponentController{
         this.TripsService.postBooking(this.trip['_id'], this.booking).then(response => {
             this.openSuccessBox();
         });
+    };
+
+    openOverview() {
+        this.tabState = 0;
+    };
+
+    openGuide() {
+        this.tabState = 1;
+    };
+
+    openLocation() {
+        this.tabState = 2;
+    };
+
+    openQuestions() {
+        this.tabState = 3;
     };
 
     edit () {

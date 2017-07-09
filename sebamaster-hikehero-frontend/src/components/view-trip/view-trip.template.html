@@ -25,41 +25,55 @@
     </div>
 </div>
 
-<div>
-    <p>{{$ctrl.trip.description}}</p>
-    <p>{{$ctrl.trip.location}}</p>
-    <p>Created by {{$ctrl.trip.creator}}</p>
-</div>
 
-<div map-lazy-load="https://maps.google.com/maps/api/js">
-    <ng-map center="41,-87" zoom="3"></ng-map>
-</div>
 
-<div ng-if="$ctrl.UserService.isAuthenticated()">
-    <h1>Questions</h1>
-    <div class="col-12 hero-box">
-        <ul ng-repeat="question in $ctrl.questions">
-            <li>
-                <p>{{question.questioner.firstname}} {{question.questioner.lastname}}</p>
-                <p>{{question.content}}</p>
-                <div ng-if="question.answer">
-                    <p ng-style="{'margin-left' : '2em'}">{{$ctrl.trip.creator}}</p>
-                    <p ng-style="{'margin-left' : '2em'}">{{question.answer}}</p>
-                </div>
-                <button ng-if="$ctrl.isTripCreator() && $ctrl.questionReplyingID != question._id && !question.answer" ng-click="$ctrl.typeAnswerToQuestion(question._id)">Reply</button>
-                <form ng-submit="$ctrl.postAnswer()" autocomplete="off" ng-if="$ctrl.questionReplyingID == question._id">
-                    <md-input-container>
-                        <input ng-model="$ctrl.answer" type="text" placeholder="Type a reply ...">
-                    </md-input-container>
-                </form>
-            </li>
-        </ul>
+<button ng-click="$ctrl.openOverview()">Overview</button>
+<button ng-click="$ctrl.openGuide()">Guide</button>
+<button ng-click="$ctrl.openLocation()">Location</button>
+<button ng-click="$ctrl.openQuestions()">Questions</button>
 
-        <form ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator()">
-            <md-input-container>
-                <input ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
-            </md-input-container>
-        </form>
+<div id="tabs">
+    <div ng-if="$ctrl.tabState == 0">
+        <p>{{$ctrl.trip.description}}</p>
+    </div>
+
+    <div ng-if="$ctrl.tabState == 1">
+        <p>Created by {{$ctrl.trip.creator}}</p>
+    </div>
+
+    <div ng-if="$ctrl.tabState == 2" map-lazy-load="https://maps.google.com/maps/api/js">
+        <p>{{$ctrl.trip.location}}</p>
+        <ng-map center="48.892699, 11.187858" zoom="5">
+            <marker position="48.892699, 11.187858" title="Hello World!"></marker>
+        </ng-map>
+    </div>
+
+    <div ng-if="$ctrl.tabState == 3">
+        <h1>Questions</h1>
+        <div class="col-12 hero-box">
+            <ul ng-repeat="question in $ctrl.questions">
+                <li>
+                    <p>{{question.questioner.firstname}} {{question.questioner.lastname}}</p>
+                    <p>{{question.content}}</p>
+                    <div ng-if="question.answer">
+                        <p ng-style="{'margin-left' : '2em'}">{{$ctrl.trip.creator}}</p>
+                        <p ng-style="{'margin-left' : '2em'}">{{question.answer}}</p>
+                    </div>
+                    <button ng-if="$ctrl.isTripCreator() && $ctrl.questionReplyingID != question._id && !question.answer" ng-click="$ctrl.typeAnswerToQuestion(question._id)">Reply</button>
+                    <form ng-submit="$ctrl.postAnswer()" autocomplete="off" ng-if="$ctrl.questionReplyingID == question._id">
+                        <md-input-container>
+                            <input ng-model="$ctrl.answer" type="text" placeholder="Type a reply ...">
+                        </md-input-container>
+                    </form>
+                </li>
+            </ul>
+
+            <form ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator()">
+                <md-input-container>
+                    <input ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
+                </md-input-container>
+            </form>
+        </div>
     </div>
 </div>
 

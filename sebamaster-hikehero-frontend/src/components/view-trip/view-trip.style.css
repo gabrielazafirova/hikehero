@@ -68,3 +68,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+#tabs {
+    height: 25em;
+}
