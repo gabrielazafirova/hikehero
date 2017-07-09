@@ -27,6 +27,16 @@
                             </md-select>
                         </md-input-container>
                         <span>&emsp;</span>
+                        <md-input-container flex="15">
+                            <md-select id="date" name="type" ng-model="$ctrl.search.distance" placeholder="Range" layout-align="center center">
+                                <md-option value=10>10 km</md-option>
+                                <md-option value=20>20 km</md-option>
+                                <md-option value=50>50 km</md-option>
+                                <md-option value=100>100 km</md-option>
+                                <md-option value=200>200 km</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <span>&emsp;</span>
                         <md-input-container flex="10">
                             <md-button class="md-raised md-primary" layout-align="center center" ng-click="$ctrl.reset()">Reset</md-button>
                         </md-input-container>
