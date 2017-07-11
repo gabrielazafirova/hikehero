@@ -6,7 +6,7 @@
 }
 
 app-header > md-toolbar, app-header > md-toolbar > .md-toolbar-tools{
-    min-height: 100px;
+    min-height: 120px;
 }
 
 md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
@@ -18,7 +18,16 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
     background-color: transparent;
 }
 
-img.header {
-    height: 100px;
-    width: 100px;
+#logoImage {
+    max-height: 120px;
+    max-width: 120px;
+    margin: auto;
+}
+
+#logoButton {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height: 120px;
+    width: 120px;
 }
