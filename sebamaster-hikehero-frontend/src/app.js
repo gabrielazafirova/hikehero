@@ -42,8 +42,24 @@ let app = angular.module('app', [
     ViewLogin.name,
     ViewSignUp.name,
     ViewSearchbar.name,
-]).directive("myFile", () => new MyFileComponent);
+]).directive('fileModel', ['$parse', function($parse){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs){
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
 
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    console.log("directive fileModel is working");
+                    modelSetter(scope, element[0].files[0]);
+                })
+            })
+        }
+    }
+}])
+//.directive("myFile", () => new MyFileComponent);
+//app.constant('image', {profil: 42});
 app.constant('API_URL', 'http://localhost:3000/api');
 app.config(Routes);
 app.config(Middlewares);

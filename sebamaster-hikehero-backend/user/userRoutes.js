@@ -31,13 +31,10 @@ function userRoutes(passport) {
         var destination = photo.destination;
         var size = photo.size;
         var mimetype = photo.mimetype;
-
-        //res.send(photo);
-        res.status(201)
-
+        res.json(photo);
     })
     router.post('/login', userController.login);
-    //router.post('/upload', userController.upload);
+    //router.post('/upload', userController.test);
     router.post('/signup', userController.signup);
     router.post('/unregister', passport.authenticate('jwt', {session: false}),userController.unregister)
 

@@ -23,6 +23,9 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true //empty values are accepted
     },
+    path: {
+        type: String
+    },
 });
 
 userSchema.pre('save', function(next) {

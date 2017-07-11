@@ -10,11 +10,15 @@ class MyFileComponent{
     link(scope, element){
         element.bind('change', function(){
             scope.$apply(function(){
+                console.log("Message from directive");
                 console.log(element[0].files[0]);
             })
         })
 
 
+    }
+    static get $inject(){
+        return ['$parse'];
     }
 }
 export default MyFileComponent;

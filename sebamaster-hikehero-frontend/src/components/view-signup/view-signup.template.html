@@ -4,14 +4,14 @@
         <span flex="35"></span>
         <md-card flex="30">
             <md-card-content>
-                <form name="SignUpForm" action="http://localhost:3000/api/user/upload" method="post" enctype="multipart/form-data">
+                <form name="SignUpForm">
                     <div layout-align="center center" layout="row">
                         <div class="image-upload">
                             <label for="file-upload">
-                                <img src="profilbild_placeholder.jpg" width="100" height="100"/>
+                                <img src='profilbild_placeholder.jpg' width="100" height="100"/>
                             </label>
                         </div>
-                        <input class="signup" id="file-upload" name="photo" type="file" my-file="customer.file"/>
+                        <input class="signup" id="file-upload" name="photo" type="file" file-model="customer.photo"/>
                     </div>
                     <md-input-container class="md-block">
                         <label>First Name</label>
@@ -55,4 +55,5 @@
     <span flex></span>
 </div>
 {{$ctrl.signup}}
-{{scope.customer.file}}
+{{customer.file}}
+{{image.profil}}

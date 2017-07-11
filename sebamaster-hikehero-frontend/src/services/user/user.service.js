@@ -18,17 +18,17 @@ export default class UserService {
         return 'UserService';
     }
 
-   upload(data){
-       var fd = new FormData();
-        for(var key in data)
-            fd.append(key, data[key]);
-       return this.$http.post(`${ this.API_URL }/user/upload`, {
-            photo: data,
-            transformRequest: angular.indentity,
-            headers: { 'Content-Type': undefined }
-        });
+   upload(uploadUrl, data){
+           var fd = new FormData();
+           for(var key in data)
+               fd.append(key, data[key]);
+           console.log(fd);
+           this.$http.post(uploadUrl, fd, {
+               transformRequest: angular.indentity,
+               headers: { 'Content-Type': undefined }
+           });
+       }
 
-    }
     signup(email,password, firstname, lastname, description) {
         return this.$http.post(`${ this.API_URL }/user/signup`, {
             email: email,
