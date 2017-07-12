@@ -9,7 +9,7 @@ function userRoutes(passport) {
     var upload = multer({ storage: multer.diskStorage({
 
         destination: function (req, file, cb) {
-            cb(null, './uploads');
+            cb(null, '../sebamaster-hikehero-frontend/dist');
         },
 
         filename: function (req, file, cb) {
