@@ -22,7 +22,7 @@ function userRoutes(passport) {
 
     })});
     //var upload = multer({ dest: 'uploads/' });
-
+/*
     router.post('/upload', upload.single('photo'), function (req, res) {
         var photo = req.file;
         var originalname = photo.originalname;
@@ -32,9 +32,9 @@ function userRoutes(passport) {
         var size = photo.size;
         var mimetype = photo.mimetype;
         res.json(photo);
-    })
+    })*/
     router.post('/login', userController.login);
-    //router.post('/upload', userController.test);
+    router.post('/upload', upload.single('photo'), userController.test);
     router.post('/signup', userController.signup);
     router.post('/unregister', passport.authenticate('jwt', {session: false}),userController.unregister)
 

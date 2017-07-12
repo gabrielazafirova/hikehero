@@ -61,6 +61,7 @@ let app = angular.module('app', [
 //.directive("myFile", () => new MyFileComponent);
 //app.constant('image', {profil: 42});
 app.constant('API_URL', 'http://localhost:3000/api');
+app.constant('test','test constant');
 app.config(Routes);
 app.config(Middlewares);
 

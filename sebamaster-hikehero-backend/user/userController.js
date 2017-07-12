@@ -2,8 +2,19 @@ var Config = require('../config/config.js');
 var User = require('./userSchema');
 var jwt = require('jwt-simple');
 
+//var path = "";
 
 
+module.exports.test = function (req, res) {
+    var photo = req.file;
+    var originalname = photo.originalname;
+    var filename = photo.filename;
+    var path = photo.path;
+    var destination = photo.destination;
+    var size = photo.size;
+    var mimetype = photo.mimetype;
+    res.json(photo);
+};
 
 module.exports.login = function(req, res){
 
@@ -66,7 +77,8 @@ module.exports.signup = function(req, res){
     user.firstname = req.body.firstname;
     user.lastname = req.body.lastname;
     user.description = req.body.description;
-
+    //user.path = path;
+    //res.json(path)
     user.save(function(err) {
         if (err) {
             res.status(500).send(err);
@@ -74,6 +86,7 @@ module.exports.signup = function(req, res){
         }
 
         res.status(201).json({token: createToken(user)});
+        //res.json(user.path);
     });
 };
 

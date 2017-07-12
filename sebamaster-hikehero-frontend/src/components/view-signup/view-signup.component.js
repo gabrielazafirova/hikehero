@@ -35,24 +35,25 @@ class ViewSignUpComponentController{
     }
 
     log(){
+        /*console.log('file is ' );
+        console.log(this.$scope.customer);
+        let uploadUrl = "http://localhost:3000/api/user/upload";
+        this.UserService.upload(uploadUrl,this.$scope.customer);*/
+    }
+
+    submit(){
         console.log('file is ' );
         console.log(this.$scope.customer);
         let uploadUrl = "http://localhost:3000/api/user/upload";
         this.UserService.upload(uploadUrl,this.$scope.customer);
-    }
-
-    submit(){
-        /*let photo = this.signup.photo; //kann leider nicht auf photo ueber ng-model zugreifen da multipart/form-data
-        console.log('file is ' );
-        console.dir(photo);*/
-        console.log('file is ' );
-        //console.log(this.$scope.customer);
 
         let email = this.signup.email;
         let password = this.signup.password;
         let firstname = this.signup.firstname;
         let lastname = this.signup.lastname;
         let description = this.signup.description;
+        //let photo = this.$scope.customer;
+
 
 
         this.UserService.signup(email,password, firstname, lastname, description).then(()=> {

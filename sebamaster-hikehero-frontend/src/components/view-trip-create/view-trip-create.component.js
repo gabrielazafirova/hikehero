@@ -40,7 +40,9 @@ class ViewTripCreateComponentController{
     save() {
         let user = this.UserService.getCurrentUser();
         this.trip.creator = user.firstname;
-        console.log(this.trip.creator);
+
+        console.log("user.path test");
+        console.log(user.path);
 
         var toString = this.trip.startdate.toString();
         this.trip.startdate = toString;
