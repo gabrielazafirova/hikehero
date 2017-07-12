@@ -53,6 +53,7 @@ let app = angular.module('app', [
                 scope.$apply(function(){
                     console.log("directive fileModel is working");
                     modelSetter(scope, element[0].files[0]);
+                    scope.set_preview();
                 })
             })
         }
@@ -61,7 +62,7 @@ let app = angular.module('app', [
 //.directive("myFile", () => new MyFileComponent);
 //app.constant('image', {profil: 42});
 app.constant('API_URL', 'http://localhost:3000/api');
-app.constant('test','test constant');
+app.constant('test','test constant')
 app.config(Routes);
 app.config(Middlewares);
 

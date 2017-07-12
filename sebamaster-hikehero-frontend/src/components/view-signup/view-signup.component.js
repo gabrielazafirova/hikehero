@@ -26,6 +26,16 @@ class ViewSignUpComponentController{
         this.UserService = UserService;
         this.$scope = $scope;
         this.$scope.customer = {};
+        this.$scope.set_preview = function() {
+            var file = document.getElementById('file-upload').files[0];
+            console.log(file);
+            var reader  = new FileReader();
+            reader.onload = function(e)  {
+                var image = document.getElementById("profil_image");
+                image.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
         this.test = test;
     }
 
@@ -39,6 +49,8 @@ class ViewSignUpComponentController{
 
 
     }
+
+
 
     submit(){
         var that = this;
