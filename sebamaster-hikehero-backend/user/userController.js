@@ -13,7 +13,7 @@ module.exports.test = function (req, res) {
     var destination = photo.destination;
     var size = photo.size;
     var mimetype = photo.mimetype;
-    res.json(photo);
+    return res.json(photo);
 };
 
 module.exports.login = function(req, res){
@@ -69,6 +69,10 @@ module.exports.signup = function(req, res){
         res.status(400).send('Description about yourself is required');
         return;
     }
+    if(!req.body.path){
+        res.status(400).send('Profil picture is required');
+        return;
+    }
 
     var user = new User();
 
@@ -77,7 +81,7 @@ module.exports.signup = function(req, res){
     user.firstname = req.body.firstname;
     user.lastname = req.body.lastname;
     user.description = req.body.description;
-    //user.path = path;
+    user.path = req.body.path;
     //res.json(path)
     user.save(function(err) {
         if (err) {

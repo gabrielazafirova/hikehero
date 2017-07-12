@@ -4,15 +4,13 @@
 export default class UserService {
 
     static get $inject(){
-        return ['$http', '$window','API_URL', 'test'];
+        return ['$http', '$window','API_URL'];
     }
 
     constructor($http,$window,API_URL, test) {
         this.$http = $http;
         this.$window = $window;
         this.API_URL = API_URL;
-        this.test = test;
-
     }
 
     static get name(){
@@ -25,23 +23,24 @@ export default class UserService {
                fd.append(key, data[key]);
            //console.log(fd);
            //console.log(this.test);
-           this.$http.post(uploadUrl, fd, {
+           return this.$http.post(uploadUrl, fd, {
                transformRequest: angular.indentity,
                headers: { 'Content-Type': undefined }
            });
        }
 
-    signup(email,password, firstname, lastname, description) {
+    signup(email,password, firstname, lastname, description, path) {
         return this.$http.post(`${ this.API_URL }/user/signup`, {
             email: email,
             password: password,
             firstname: firstname,
             lastname: lastname,
-            description: description
+            description: description,
+            path: path,
         });
     }
 
-    create_tour(titel,price, date, difficulty, description, location) {
+    create_tour(titel, price, date, difficulty, description, location) {
         return this.$http.post(`${ this.API_URL }/user/create_tour`, {
             titel: titel,
             price: price,

@@ -21,11 +21,12 @@ class ViewSignUpComponent {
 }
 
 class ViewSignUpComponentController{
-    constructor($state,UserService, $scope) {
+    constructor($state,UserService, $scope, test) {
         this.$state = $state;
         this.UserService = UserService;
         this.$scope = $scope;
         this.$scope.customer = {};
+        this.test = test;
     }
 
 
@@ -35,34 +36,43 @@ class ViewSignUpComponentController{
     }
 
     log(){
-        /*console.log('file is ' );
-        console.log(this.$scope.customer);
-        let uploadUrl = "http://localhost:3000/api/user/upload";
-        this.UserService.upload(uploadUrl,this.$scope.customer);*/
+
+
     }
 
     submit(){
-        console.log('file is ' );
-        console.log(this.$scope.customer);
+        var that = this;
+        var path = "";
         let uploadUrl = "http://localhost:3000/api/user/upload";
-        this.UserService.upload(uploadUrl,this.$scope.customer);
 
+        //console.log(this.test);
         let email = this.signup.email;
         let password = this.signup.password;
         let firstname = this.signup.firstname;
         let lastname = this.signup.lastname;
         let description = this.signup.description;
-        //let photo = this.$scope.customer;
 
-
-
-        this.UserService.signup(email,password, firstname, lastname, description).then(()=> {
-            this.$state.go('trips',{});
+        this.UserService.upload(uploadUrl,this.$scope.customer).then( function (response){
+            path =  response.data.path;
+            path = path.toString();
+            that.test = path;
+            console.log("1: "+that.test);
+            that.UserService.signup(email,password, firstname, lastname, description, path).then(()=> {
+                that.$state.go('trips',{});
         })
+
+        })
+        /*console.log("2: "+path);
+
+        let path = this.test;
+
+        console.log(path);*/
+
+
     }
 
     static get $inject(){
-        return ['$state', UserService.name, '$scope'];
+        return ['$state', UserService.name, '$scope', 'test'];
     }
 
 }
