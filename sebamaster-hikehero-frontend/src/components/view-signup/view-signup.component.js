@@ -21,7 +21,7 @@ class ViewSignUpComponent {
 }
 
 class ViewSignUpComponentController{
-    constructor($state,UserService, $scope, test) {
+    constructor($state,UserService, $scope) {
         this.$state = $state;
         this.UserService = UserService;
         this.$scope = $scope;
@@ -36,7 +36,6 @@ class ViewSignUpComponentController{
             }
             reader.readAsDataURL(file);
         }
-        this.test = test;
     }
 
 
@@ -44,13 +43,6 @@ class ViewSignUpComponentController{
     $onInit() {
         this.signup = {};
     }
-
-    log(){
-
-
-    }
-
-
 
     submit(){
         var that = this;
@@ -84,7 +76,7 @@ class ViewSignUpComponentController{
     }
 
     static get $inject(){
-        return ['$state', UserService.name, '$scope', 'test'];
+        return ['$state', UserService.name, '$scope'];
     }
 
 }
