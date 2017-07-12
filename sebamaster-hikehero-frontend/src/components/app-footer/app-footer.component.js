@@ -8,22 +8,17 @@ class AppFooterComponent {
     constructor(){
         this.controller = AppFooterComponentController;
         this.template = template;
-
     }
 
     static get name() {
         return 'appFooter';
     }
-
-
 }
 
 class AppFooterComponentController{
     constructor(){
         this.year = new Date().getFullYear();
     }
-
 }
-
 
 export default AppFooterComponent;

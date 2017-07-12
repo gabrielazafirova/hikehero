@@ -23,7 +23,7 @@ class ViewCarouselComponentController{
     }
 
     $onInit() {
-        new Swiper ('.swiper-container', { // auskommentiert da der Swiper nicht gefunden wurde
+        new Swiper ('.swiper-container', {
             // Optional parameters
             direction: 'horizontal',
             loop: true,

@@ -1,14 +1,14 @@
 <md-toolbar>
-    <div class="md-toolbar-tools" layout="row" layout-padding>
+    <div class="container md-toolbar-tools" layout="row" layout-padding>
 
 
-        <div flex="45"></div>
+        <div class="col-4"></div>
 
-        <div flex="20" layout-align="center center" layout="row">
+        <div class="col-2" layout-align="center center" layout="row">
             <button id="logoButton" ng-click="$ctrl.goHome($event)"><img id="logoImage" src="HikeHeroLogo.png"></button>
         </div>
 
-        <div flex>
+        <div class="col-4">
             <section layout="row" layout-align="end center" layout-wrap>
                 <md-button ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.create_tour($event)" >
                     <md-icon md-menu-align-target><ng-md-icon icon="create" ></ng-md-icon></md-icon>

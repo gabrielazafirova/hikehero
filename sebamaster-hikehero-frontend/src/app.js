@@ -23,7 +23,11 @@ import ViewTripCreate from './components/view-trip-create/view-trip-create';
 import ViewCarousel from './components/view-carousel/view-carousel';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
+<<<<<<< Updated upstream
 import ViewSearchbar from './components/view-searchbar/view-searchbar';
+=======
+import MyFileComponent from './components/directive/myFile';
+>>>>>>> Stashed changes
 
 let app = angular.module('app', [
     uiRouter,
@@ -40,7 +44,6 @@ let app = angular.module('app', [
     ViewCarousel.name,
     ViewLogin.name,
     ViewSignUp.name,
-    ViewSearchbar.name,
 ]).directive('fileModel', ['$parse', function($parse){
     return {
         restrict: 'A',
