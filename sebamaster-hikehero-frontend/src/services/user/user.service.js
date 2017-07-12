@@ -4,13 +4,14 @@
 export default class UserService {
 
     static get $inject(){
-        return ['$http', '$window','API_URL'];
+        return ['$http', '$window','API_URL', 'test'];
     }
 
-    constructor($http,$window,API_URL) {
+    constructor($http,$window,API_URL, test) {
         this.$http = $http;
         this.$window = $window;
         this.API_URL = API_URL;
+        this.test = test;
 
     }
 
@@ -22,7 +23,8 @@ export default class UserService {
            var fd = new FormData();
            for(var key in data)
                fd.append(key, data[key]);
-           console.log(fd);
+           //console.log(fd);
+           //console.log(this.test);
            this.$http.post(uploadUrl, fd, {
                transformRequest: angular.indentity,
                headers: { 'Content-Type': undefined }
