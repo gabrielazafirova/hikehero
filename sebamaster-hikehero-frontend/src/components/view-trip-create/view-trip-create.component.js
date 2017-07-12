@@ -41,8 +41,11 @@ class ViewTripCreateComponentController{
         let user = this.UserService.getCurrentUser();
         this.trip.creator = user.firstname;
 
-        console.log("user.path test");
-        console.log(user.path);
+        //console.log("user.path test");
+        //console.log(user.path);
+        var temp ="../../sebamaster-hikehero-backend/uploads/"
+        this.trip.path = temp.concat(user.path);
+        console.log(this.trip.path);
 
         var toString = this.trip.startdate.toString();
         this.trip.startdate = toString;

@@ -53,7 +53,7 @@ class ViewSignUpComponentController{
         let description = this.signup.description;
 
         this.UserService.upload(uploadUrl,this.$scope.customer).then( function (response){
-            path =  response.data.path;
+            path =  response.data.filename;
             path = path.toString();
             that.test = path;
             console.log("1: "+that.test);

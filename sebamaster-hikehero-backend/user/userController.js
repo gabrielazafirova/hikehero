@@ -107,7 +107,8 @@ function createToken(user) {
         user: {
             _id: user._id,
             email: user.email,
-            firstname: user.firstname
+            firstname: user.firstname,
+            path: user.path
         }
 
     };
