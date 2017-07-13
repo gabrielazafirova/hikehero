@@ -1,11 +1,13 @@
 <div class="container">
-    <h1 class="col-8">{{ $ctrl.trip.title }}</h1>
+    <div class="col-8">
+        <h1 >{{ $ctrl.trip.title }}</h1>
+    </div>
     <div class="col-4">
-        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+        <md-button class="mod-buttons" ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
             <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
         </md-button>
 
-        <md-button ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
+        <md-button class="mod-buttons" ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
         </md-button>
     </div>
@@ -13,7 +15,15 @@
 
 <div class="container">
     <div class="col-8">
-        <view-carousel></view-carousel>
+        <div>
+            <img class="tripSlides" src="Slider_1.png">
+            <img class="tripSlides" src="Slider_2.png">
+            <img class="tripSlides" src="Slider_3.png">
+        </div>
+        <div class="container">
+            <button class="sliderButton" ng-click="$ctrl.previousSlide()"><</button>
+            <button class="sliderButton" ng-click="$ctrl.nextSlide()">></button>
+        </div>
     </div>
     <div class="col-4 hero-box">
         <p>{{ $ctrl.trip.price }}€ per person</p>
@@ -27,10 +37,10 @@
 
 
 
-<button ng-click="$ctrl.openOverview()">Overview</button>
-<button ng-click="$ctrl.openGuide()">Guide</button>
-<button ng-click="$ctrl.openLocation()">Location</button>
-<button ng-click="$ctrl.openQuestions()">Questions</button>
+<button class="tabButton" ng-click="$ctrl.openOverview()">Overview</button>
+<button class="tabButton" ng-click="$ctrl.openGuide()">Guide</button>
+<button class="tabButton" ng-click="$ctrl.openLocation()">Location</button>
+<button class="tabButton" ng-click="$ctrl.openQuestions()">Questions</button>
 
 <div id="tabs">
     <div ng-if="$ctrl.tabState == 0">

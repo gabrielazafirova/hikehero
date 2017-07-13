@@ -1,0 +1,16 @@
+.tripsSlides {
+    width: 100%;
+}
+
+.sliderButtons {
+    margin: 0 auto;
+}
+
+.sliderButton {
+    font-weight: 900;
+    font-size: 300%;
+    color: #0a7bff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

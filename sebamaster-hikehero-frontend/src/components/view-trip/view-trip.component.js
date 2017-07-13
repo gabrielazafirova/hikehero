@@ -31,6 +31,36 @@ class ViewTripComponentController{
         this.questionReplyingID = "";
         this.answer = "";
         this.tabState = 0;
+        this.slideIndex = 1;
+    }
+
+    $onInit() {
+        this.displaySlider();
+    }
+
+    displaySlider() {
+        var slides = document.getElementsByClassName("tripSlides");
+        // Start again from the beginning
+        if (this.slideIndex > slides.length) {this.slideIndex = 1}
+        // Go back to the end
+        if (this.slideIndex < 1) {this.slideIndex = slides.length}
+        // Set all slides invisible
+        var i;
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        // Only set the slide with the current index visible
+        slides[this.slideIndex-1].style.display = "block";
+    }
+
+    nextSlide() {
+        this.slideIndex = this.slideIndex + 1;
+        this.displaySlider();
+    }
+
+    previousSlide() {
+        this.slideIndex = this.slideIndex - 1;
+        this.displaySlider();
     }
 
     openPaymentBox() {
