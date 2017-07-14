@@ -26,7 +26,7 @@ class ViewTripCreateComponentController{
         this.placeChanged = function() {
             _this.trip.location = this.getPlace().formatted_address;
             _this.trip.lat = this.getPlace().geometry.location.lat();
-            _this.trip.lon = this.getPlace().geometry.location.lon();
+            _this.trip.lon = this.getPlace().geometry.location.lng();
         }
         this.$state = $state;
         this.TripsService = TripsService;
@@ -46,9 +46,16 @@ class ViewTripCreateComponentController{
         this.trip.path = user.path;
         console.log(this.trip.path);
 
-        var toString = this.trip.startdate.toString();
+        var date = this.trip.startdate;
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        var toString = day + '/' + (monthIndex + 1) + '/' + year;
         this.trip.startdate = toString;
         console.log(this.trip.startdate);
+
+
 
         this.trip['user'] = user['_id'];
         this.TripsService.create(this.trip).then(data => {

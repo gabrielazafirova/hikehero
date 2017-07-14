@@ -34,6 +34,9 @@ class ViewTripsComponentController{
             if(_this.search == {}) {
                 return true;
             }
+            if(trip.location != _this.search.location & _this.search.location != undefined) {
+                return false;
+            }
             if(trip.startdate != _this.search.startdate & _this.search.startdate != undefined) {
                 return false;
             }
@@ -89,10 +92,15 @@ class ViewTripsComponentController{
     }
 
     change(){
-        console.log("Change test");
-        var toString = this.search.startdate.toString();
+        var date = this.search.startdate;
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        var toString = day + '/' + (monthIndex + 1) + '/' + year;
         this.search.startdate = toString;
         console.log(this.search.startdate);
+        
     };
 
     reset(){
