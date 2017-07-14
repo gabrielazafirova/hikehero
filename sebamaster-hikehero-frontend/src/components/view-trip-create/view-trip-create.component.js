@@ -52,8 +52,9 @@ class ViewTripCreateComponentController{
         var year = date.getFullYear();
 
         var toString = day + '/' + (monthIndex + 1) + '/' + year;
-        this.trip.startdate = toString;
-        console.log(this.trip.startdate);
+        //this.trip.startdate = toString;
+        //console.log(this.trip.startdate);
+        this.trip.date = toString;
 
 
 

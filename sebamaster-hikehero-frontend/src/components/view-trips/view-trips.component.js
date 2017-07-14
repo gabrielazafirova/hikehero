@@ -37,7 +37,7 @@ class ViewTripsComponentController{
             if(trip.location != _this.search.location & _this.search.location != undefined) {
                 return false;
             }
-            if(trip.startdate != _this.search.startdate & _this.search.startdate != undefined) {
+            if(trip.date != _this.search.date & _this.search.date != undefined) {
                 return false;
             }
             if(trip.price < _this.search.minPrice) {
@@ -98,8 +98,8 @@ class ViewTripsComponentController{
         var year = date.getFullYear();
 
         var toString = day + '/' + (monthIndex + 1) + '/' + year;
-        this.search.startdate = toString;
-        console.log(this.search.startdate);
+        this.search.date = toString;
+        //console.log(this.search.startdate);
         
     };
 

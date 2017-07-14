@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 // Define our tour schema
 var Trip   = new mongoose.Schema({
     title: String,
-    startdate: String,
+    date: String,
     starttime: String,
     location: String,
     lat: Number,
