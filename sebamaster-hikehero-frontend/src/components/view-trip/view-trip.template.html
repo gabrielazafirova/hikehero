@@ -16,9 +16,9 @@
 <div class="container">
     <div class="col-8">
         <div>
-            <img class="tripSlides" src="Slider_1.png">
-            <img class="tripSlides" src="Slider_2.png">
-            <img class="tripSlides" src="Slider_3.png">
+            <img class="tripSlides" src="{{$ctrl.trip.imagePath1}}">
+            <img class="tripSlides" src="{{$ctrl.trip.imagePath2}}">
+            <img class="tripSlides" src="{{$ctrl.trip.imagePath3}}">
         </div>
         <div class="container">
             <button class="sliderButton" ng-click="$ctrl.previousSlide()"><</button>
@@ -30,7 +30,6 @@
         <p>{{ $ctrl.trip.date }}</p>
         {{ console.log($ctrl.trip.date) }}
         <p>{{ $ctrl.trip.difficulty }} </p>
-        <img src="{{$ctrl.trip.imagePath1}}" width="100" height="100" >
         <!-- Open The Modal -->
         <button ng-click="$ctrl.openPaymentBox()" class="btn btn-primary">Book now</button>
     </div>
