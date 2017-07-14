@@ -10,7 +10,7 @@ var Trip   = new mongoose.Schema({
     lat: Number,
     lon: Number,
     difficulty: String,
-    price: String,
+    price: Number,
     description: String,
     creator: String,
     path: String,

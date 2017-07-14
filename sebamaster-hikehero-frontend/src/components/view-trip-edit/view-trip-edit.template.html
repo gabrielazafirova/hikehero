@@ -1,34 +1,75 @@
-<div layout="column" layout-padding>
-    <md-content class="md-no-momentum">
-        <h1> {{$ctrl.trip.title}} </h1>
-        <br/>
-        <form name="tripForm">
-            <md-input-container class="md-icon-float md-block">
-                <label>Title</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.title" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>Year</label>
-                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.year" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>MPAA Rating</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.mpaa_rating" type="text">
-            </md-input-container>
-            <md-input-container class="md-block">
-                <label>Description</label>
-                <textarea ng-model="$ctrl.model.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
-            </md-input-container>
-            <div layout="row">
-                <span flex></span>
-                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
-                <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
-            </div>
-
-        </form>
+<div layout="column" layout-padding="">
+    <md-content class="createtrip-form" layout="row" layout-align="center center">
+        <md-card flex="100" >
+            <md-card-content>
+                <form name="TripForm">
+                    <h1 align ="center"> {{$ctrl.trip.title}} </h1>
+                    <br/>
+                    <md-input-container class="md-block">
+                        <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                        <label>Title:</label>
+                        <input type="text" ng-model="$ctrl.trip.title" flex placeholder="Enter short title of your trip" md-maxlength="30" required=""/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
+                        <label>Location:</label>
+                        <input type="text" places-auto-complete on-place-changed ="$ctrl.placeChanged()" flex placeholder="Enter location" required=""/>
+                    </md-input-container>
+                    <div layout="row">
+                        <div flex="33">
+                            <md-input-container class="md-block">
+                                <label>Date:</label>
+                                <md-datepicker ng-model="$ctrl.trip.startdate" date-only required=""></md-datepicker>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                        </div>
+                        <div flex="33">
+                            <md-input-container class="md-block">
+                                <label>From:</label>
+                                <input ng-model="$ctrl.trip.starttime" type="text" required="" />
+                                <md-input-container class="md-block">
+                        </div>
+                        <div flex="33">
+                            <md-input-container class="md-block">
+                                <label>To:</label>
+                                <input ng-model="$ctrl.trip.endtime" type="text" required="" />
+                                <md-input-container class="md-block">
+                        </div>
+                    </div>
+                    <div layout="row" layout-fill layout-margin layout-align="start center">
+                        <div flex="30">
+                            <md-input-container class="md-block">
+                                <label>Price:</label>
+                                <input ng-model="$ctrl.trip.price" type="number" required="">
+                        </div>
+                        <div flex="20">
+                        </div>
+                        <div flex="35">
+                            <md-input-container class="md-block">
+                                <md-select id="date" name="type" ng-model="$ctrl.trip.difficulty" placeholder="Please select level of difficulty">
+                                    <md-option value="grad1">*</md-option>
+                                    <md-option value="grad2">**</md-option>
+                                    <md-option value="grad3">***</md-option>
+                                    <md-option value="grad4">****</md-option>
+                                    <md-option value="grad5">*****</md-option>
+                                </md-select>
+                        </div>
+                    </div>
+                    <md-input-container class="md-block">
+                        <md-icon><ng-md-icon icon="description" ></ng-md-icon></md-icon>
+                        <label>Description</label>
+                        <textarea ng-model="$ctrl.trip.description" md-maxlength="1000" rows="5" md-select-on-focus required=""></textarea>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <div>Photos: (optional, max 3)</div>
+                        <img id="image1" width="100" height="100" data-ng-src="data:image/png;base64,{{$ctrl.trip.image}}"/>
+                        <input type="file" id="imageUpload" name="photo" onchange="$ctrl.uploadImage()"/>
+                    </md-input-container>
+                    <div>
+                        <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Create Tour</md-button>
+                        <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+                    </div>
+            </md-card-content>
+        </md-card>
     </md-content>
-
 </div>
