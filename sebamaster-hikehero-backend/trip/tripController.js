@@ -68,3 +68,14 @@ exports.deleteTrip = function(req, res) {
         res.sendStatus(200);
     });
 };
+
+module.exports.test = function (req, res) {
+    var photo = req.file;
+    var originalname = photo.originalname;
+    var filename = photo.filename;
+    var path = photo.path;
+    var destination = photo.destination;
+    var size = photo.size;
+    var mimetype = photo.mimetype;
+    return res.json(photo);
+};

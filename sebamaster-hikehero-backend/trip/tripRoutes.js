@@ -8,6 +8,23 @@ function tripRoutes(passport) {
     var bookingController = require('./bookingController');
     var router = require('express').Router();
     var unless = require('express-unless');
+    var multer  = require('multer');
+
+    var upload = multer({ storage: multer.diskStorage({
+
+        destination: function (req, file, cb) {
+            cb(null, '../sebamaster-hikehero-frontend/dist');
+        },
+
+        filename: function (req, file, cb) {
+            var ext = require('path').extname(file.originalname);
+            ext = ext.length>1 ? ext : "." + require('mime').extension(file.mimetype);
+            require('crypto').pseudoRandomBytes(16, function (err, raw) {
+                cb(null, (err ? undefined : raw.toString('hex') ) + ext);
+            });
+        }
+
+    })});
 
     var mw = passport.authenticate('jwt', {session: false});
     mw.unless = unless;
@@ -18,6 +35,8 @@ function tripRoutes(passport) {
     router.route('/')
         .post(tripController.postTrip)
         .get(tripController.getTrips);
+
+    router.post('/upload', upload.array('photos', 3), tripController.test);
 
     router.route('/:trip_id')
         .get(tripController.getTrip)

@@ -14,6 +14,9 @@ var Trip   = new mongoose.Schema({
     description: String,
     creator: String,
     path: String,
+    imagePath1: String,
+    imagePath2: String,
+    imagePath3: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

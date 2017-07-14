@@ -25,7 +25,7 @@ class ViewSignUpComponentController{
         this.$state = $state;
         this.UserService = UserService;
         this.$scope = $scope;
-        this.$scope.customer = {};
+        this.$scope.profileImage = {};
         this.$scope.set_preview = function() {
             var file = document.getElementById('file-upload').files[0];
             console.log(file);
@@ -56,7 +56,7 @@ class ViewSignUpComponentController{
         let lastname = this.signup.lastname;
         let description = this.signup.description;
 
-        this.UserService.upload(uploadUrl,this.$scope.customer).then( function (response){
+        this.UserService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
             path =  response.data.filename;
             path = path.toString();
             that.test = path;

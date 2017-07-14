@@ -50,7 +50,7 @@ let app = angular.module('app', [
                 scope.$apply(function(){
                     console.log("directive fileModel is working");
                     modelSetter(scope, element[0].files[0]);
-                    scope.set_preview();
+                    scope.set_preview(element);
                 })
             })
         }

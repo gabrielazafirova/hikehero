@@ -20,7 +20,7 @@ class ViewTripCreateComponent {
 }
 
 class ViewTripCreateComponentController{
-    constructor($state, TripsService,UserService){
+    constructor($state, TripsService,UserService,$scope){
         this.trip = {};
         var _this = this;
         this.placeChanged = function() {
@@ -31,6 +31,24 @@ class ViewTripCreateComponentController{
         this.$state = $state;
         this.TripsService = TripsService;
         this.UserService = UserService;
+        this.$scope = $scope;
+        this.$scope.profileImage = {};
+        this.$scope.set_preview = function(element) {
+            let file = element[0].files[0];
+            let reader  = new FileReader();
+            reader.onload = function(e)  {
+                let image;
+                if (element[0].id == "imageUpload1") {
+                    image = document.getElementById("image1");
+                } else if (element[0].id == "imageUpload2") {
+                    image = document.getElementById("image2");
+                } else if (element[0].id == "imageUpload3") {
+                    image = document.getElementById("image3");
+                }
+                image.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
     }
 
     cancel() {
@@ -79,7 +97,7 @@ class ViewTripCreateComponentController{
     }
 
     static get $inject(){
-        return ['$state', TripsService.name, UserService.name];
+        return ['$state', TripsService.name, UserService.name, '$scope'];
     }
 
 }
