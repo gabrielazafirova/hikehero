@@ -82,10 +82,10 @@ class ViewTripCreateComponentController{
 
         this.trip['user'] = user['_id'];
         this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
-            path =  response.data.filename;
+            /*path =  response.data.filename;
             path = path.toString();
             that.trip.path = path;
-            console.log("1: "+that.trip.path);
+            console.log("1: "+that.trip.path);*/
             that.TripsService.create(that.trip).then(data => {
                 that.$state.go('trips',{});
         })
