@@ -54,6 +54,22 @@ class ViewTripEditComponentController{
     $onInit() {
         //Clone the trip Data
         this.model = JSON.parse(JSON.stringify(this.trip))
+        //this.trip.date = new Date(this.trip.date);
+
+        var temp = this.trip.date;
+        var res = temp.split("/");
+
+        if(res[1].length == 1){
+            res[1] = "0"+res[1];
+        }
+
+        if(res[0].length == 1){
+            res[0] = "0"+res[0];
+        }
+
+        var toDate = res[2]+"-"+res[1]+"-"+res[0]+"T00:00:00"
+        this.trip.startdate = new Date(toDate);
+        console.log(toDate);
     }
 
     cancel() {
@@ -63,9 +79,17 @@ class ViewTripEditComponentController{
 
     save() {
         var that = this;
+        let _id = this.trip['_id'];
         let uploadUrl = "http://localhost:3000/api/trips/upload";
 
-        let _id = this.trip['_id'];
+        var date = this.trip.startdate;
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        var toString = day + '/' + (monthIndex + 1) + '/' + year;
+        this.trip.date = toString;
+
         this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
             that.trip.imagePath1 =  response.data[0].filename;
             that.trip.imagePath2 =  response.data[1].filename;
