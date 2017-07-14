@@ -21,7 +21,7 @@ class ViewTripEditComponent {
 }
 
 class ViewTripEditComponentController{
-    constructor($state, TripsService){
+    constructor($state, TripsService, $scope){
         this.model = {};
         this.$state = $state;
         this.TripsService = TripsService;
@@ -30,6 +30,24 @@ class ViewTripEditComponentController{
             _this.trip.location = this.getPlace().formatted_address;
             _this.trip.lat = this.getPlace().geometry.location.lat();
             _this.trip.lon = this.getPlace().geometry.location.lon();
+        }
+        this.$scope = $scope;
+        this.$scope.profileImage = {};
+        this.$scope.set_preview = function(element) {
+            let file = element[0].files[0];
+            let reader  = new FileReader();
+            reader.onload = function(e)  {
+                let image;
+                if (element[0].id == "imageUpload1") {
+                    image = document.getElementById("image1");
+                } else if (element[0].id == "imageUpload2") {
+                    image = document.getElementById("image2");
+                } else if (element[0].id == "imageUpload3") {
+                    image = document.getElementById("image3");
+                }
+                image.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
         }
     }
 
@@ -44,13 +62,23 @@ class ViewTripEditComponentController{
     };
 
     save() {
+        var that = this;
+        let uploadUrl = "http://localhost:3000/api/trips/upload";
+
         let _id = this.trip['_id'];
+        this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
+            that.trip.imagePath1 =  response.data[0].filename;
+            that.trip.imagePath2 =  response.data[1].filename;
+            that.trip.imagePath3 =  response.data[2].filename;
 
-        this.TripsService.update(this.model).then(data => {
-            this.trip = JSON.parse(JSON.stringify(data));
+            that.TripsService.update(that.trip).then(data => {
+                that.trip = JSON.parse(JSON.stringify(data));
 
-            this.$state.go('trip',{ tripId:_id});
-        });
+            that.$state.go('trip',{ tripId:_id});
+        })
+
+        })
+
 
     };
 
@@ -63,7 +91,7 @@ class ViewTripEditComponentController{
     };
 
     static get $inject(){
-        return ['$state', TripsService.name];
+        return ['$state', TripsService.name, '$scope'];
     }
 
 }
