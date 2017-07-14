@@ -26,7 +26,7 @@ class ViewTripCreateComponentController{
         this.placeChanged = function() {
             _this.trip.location = this.getPlace().formatted_address;
             _this.trip.lat = this.getPlace().geometry.location.lat();
-            _this.trip.lon = this.getPlace().geometry.location.lng();
+            _this.trip.lon = this.getPlace().geometry.location.lon();
         }
         this.$state = $state;
         this.TripsService = TripsService;

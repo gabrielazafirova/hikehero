@@ -12,6 +12,7 @@ class ViewTripEditComponent {
         this.bindings = {
             trip: '<',
         }
+
     }
 
     static get name() {
@@ -24,6 +25,12 @@ class ViewTripEditComponentController{
         this.model = {};
         this.$state = $state;
         this.TripsService = TripsService;
+        var _this = this;
+        this.placeChanged = function() {
+            _this.trip.location = this.getPlace().formatted_address;
+            _this.trip.lat = this.getPlace().geometry.location.lat();
+            _this.trip.lon = this.getPlace().geometry.location.lon();
+        }
     }
 
     $onInit() {

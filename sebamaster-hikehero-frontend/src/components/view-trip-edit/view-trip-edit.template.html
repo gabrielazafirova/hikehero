@@ -13,7 +13,7 @@
                     <md-input-container class="md-block">
                         <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
                         <label>Location:</label>
-                        <input type="text" places-auto-complete on-place-changed ="$ctrl.placeChanged()" flex placeholder="Enter location" required=""/>
+                        <input type="text" places-auto-complete on-place-changed ="$ctrl.placeChanged()" ng-model="$ctrl.trip.location"  flex placeholder="Enter location" required=""/>
                     </md-input-container>
                     <div layout="row">
                         <div flex="33">
