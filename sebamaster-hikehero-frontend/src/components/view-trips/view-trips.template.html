@@ -1,15 +1,17 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div>
-    <img class="tripsSlides" src="Slider_1.png">
-    <img class="tripsSlides" src="Slider_2.png">
-    <img class="tripsSlides" src="Slider_3.png">
+    <img class="tripsSlides shadow" src="Slider_1.png">
+    <img class="tripsSlides shadow" src="Slider_2.png">
+    <img class="tripsSlides shadow" src="Slider_3.png">
 </div>
-<div class="container">
-    <button class="sliderButton" ng-click="$ctrl.previousSlide()"><</button>
-    <button class="sliderButton" ng-click="$ctrl.nextSlide()">></button>
+<div class="sliderButtons">
+    <button class="sliderButton" ng-click="$ctrl.previousSlide()"><i class="fa fa-angle-left"></i></button>
+    <button class="sliderButton" ng-click="$ctrl.nextSlide()"><i class="fa fa-angle-right"></i></button>
 </div>
 
-<md-card ng-style="{'background-color' : 'transparent'}">
-    <md-card-content ng-style="{'height' : '50px' , 'text-align' : 'center'}">
+<md-card ng-style="{'background-color' : 'white'}">
+    <md-card-content ng-style="{'text-align' : 'center'}">
         <div layout-gt-xs="row" id="search" ng-style="{'display': 'inline-block'}">
             <md-input-container placeholder="" flex="30">
                 <label> </label>

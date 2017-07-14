@@ -14,6 +14,13 @@ md-content {
     align-items: center;     /* center items horizontally, in this case */
 }
 
+.columnContainer {
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center;
+    align-items: center;
+}
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -27,24 +34,68 @@ md-content {
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-.md-button{
-    margin-top: -15px;
-    height: 30px;
-    min-width: 30px;
+.shadow {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
 
-#search{
-    max-width: 90%;
-}
-#date{
-    margin-top: -20px;
+.hero-box {
+    background-color: white;
 }
 
-md-card {
-    padding: 0 !important;
+.my-pop-up div{
+    margin: 1em;
 }
 
-img.slider {
-    width:100%;
-    height:100%;
+.my-button {
+    background-color: #0a7bff;
+    color: white;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    outline: none;
+    padding: 10px;
+}
+
+.cancel-button {
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    outline: none;
+    padding: 10px;
+}
+
+.cancel-button:hover {
+    background-color: grey;
+}
+
+.sliderButtons {
+    margin: 30px;
+    display: flex;           /* establish flex container */
+    flex-direction: row;     /* make main axis vertical */
+    justify-content: space-around;
+    align-items: center;     /* center items horizontally, in this case */
+}
+
+.sliderButton {
+    font-weight: 900;
+    font-size: 200%;
+    color: white;
+    background-color: #0a7bff;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    outline: none;
+    width: 45%;
+}
+
+.my-button:hover,.sliderButton:hover {
+    background-color: #0657b7;
+}
+
+
+.validation-message {
+    color: red;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }

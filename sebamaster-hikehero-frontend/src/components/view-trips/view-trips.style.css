@@ -1,16 +1,21 @@
+.md-button{
+    margin-top: -15px;
+    height: 30px;
+    min-width: 30px;
+}
+
+#search{
+    max-width: 90%;
+}
+#date{
+    margin-top: -20px;
+}
+
+md-card {
+    padding: 0 !important;
+}
+
 .tripsSlides {
     width: 100%;
 }
 
-.sliderButtons {
-    margin: 0 auto;
-}
-
-.sliderButton {
-    font-weight: 900;
-    font-size: 300%;
-    color: #0a7bff;
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
