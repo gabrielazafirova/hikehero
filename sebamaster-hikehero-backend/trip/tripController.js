@@ -69,7 +69,7 @@ exports.deleteTrip = function(req, res) {
     });
 };
 
-module.exports.test = function (req, res, next) {
+module.exports.test = function (req, res) {
     var photo = req.files;
     /*var originalname = photo.originalname;
     var filename = photo.filename;

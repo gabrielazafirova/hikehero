@@ -12,6 +12,7 @@ function tripRoutes(passport) {
 
    /* var upload = multer({ storage: multer.diskStorage({
 
+
         destination: function (req, file, cb) {
             cb(null, '../sebamaster-hikehero-frontend/dist');
         },

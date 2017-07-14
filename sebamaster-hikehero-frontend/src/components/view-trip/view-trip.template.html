@@ -27,9 +27,10 @@
     </div>
     <div class="col-4 hero-box">
         <p>{{ $ctrl.trip.price }}€ per person</p>
-        <p>{{ $ctrl.trip.startdate }}</p>
-        {{ console.log($ctrl.trip.startdate) }}
+        <p>{{ $ctrl.trip.date }}</p>
+        {{ console.log($ctrl.trip.date) }}
         <p>{{ $ctrl.trip.difficulty }} </p>
+        <img src="{{$ctrl.trip.imagePath1}}" width="100" height="100" >
         <!-- Open The Modal -->
         <button ng-click="$ctrl.openPaymentBox()" class="btn btn-primary">Book now</button>
     </div>

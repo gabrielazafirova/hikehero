@@ -57,14 +57,11 @@ class ViewTripCreateComponentController{
 
     save() {
         var that = this;
-        var path = "";
         let uploadUrl = "http://localhost:3000/api/trips/upload";
 
         let user = this.UserService.getCurrentUser();
         this.trip.creator = user.firstname;
 
-        //console.log("user.path test");
-        //console.log(user.path);
         this.trip.path = user.path;
         console.log(this.trip.path);
 
@@ -74,18 +71,17 @@ class ViewTripCreateComponentController{
         var year = date.getFullYear();
 
         var toString = day + '/' + (monthIndex + 1) + '/' + year;
-        //this.trip.startdate = toString;
-        //console.log(this.trip.startdate);
         this.trip.date = toString;
 
 
 
         this.trip['user'] = user['_id'];
+        //console.log(this.TripsService.upload(uploadUrl,this.$scope.profileImage));
         this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
-            /*path =  response.data.filename;
-            path = path.toString();
-            that.trip.path = path;
-            console.log("1: "+that.trip.path);*/
+            that.trip.imagePath1 =  response.data[0].filename;
+            that.trip.imagePath2 =  response.data[1].filename;
+            that.trip.imagePath3 =  response.data[2].filename;
+
             that.TripsService.create(that.trip).then(data => {
                 that.$state.go('trips',{});
         })
