@@ -3,11 +3,11 @@
         <h1 >{{ $ctrl.trip.title }}</h1>
     </div>
     <div class="col-4">
-        <md-button class="mod-buttons" ng-if="$ctrl.isAuthenticated()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+        <md-button class="mod-buttons" ng-if="$ctrl.isTripCreator()" class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
             <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
         </md-button>
 
-        <md-button class="mod-buttons" ng-if="$ctrl.isAuthenticated()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
+        <md-button class="mod-buttons" ng-if="$ctrl.isTripCreator()" class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
         </md-button>
     </div>
