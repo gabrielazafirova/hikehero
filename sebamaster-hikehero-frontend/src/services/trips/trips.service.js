@@ -17,6 +17,18 @@ export default class TripsService {
         return 'tripsService';
     }
 
+    upload(uploadUrl, data){
+        var fd = new FormData();
+        for(var key in data)
+            fd.append(key, data[key]);
+        //console.log(fd);
+        //console.log(this.test);
+        return this.$http.post(uploadUrl, fd, {
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        });
+    }
+
     list() {
 
         let url = this.resourceUrl;

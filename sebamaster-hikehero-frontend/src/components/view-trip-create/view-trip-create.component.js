@@ -56,6 +56,10 @@ class ViewTripCreateComponentController{
     };
 
     save() {
+        var that = this;
+        var path = "";
+        let uploadUrl = "http://localhost:3000/api/trips/upload";
+
         let user = this.UserService.getCurrentUser();
         this.trip.creator = user.firstname;
 
@@ -77,11 +81,17 @@ class ViewTripCreateComponentController{
 
 
         this.trip['user'] = user['_id'];
-        this.TripsService.create(this.trip).then(data => {
-            this.$state.go('trips',{});
-            /*let _id = data['_id'];
-            this.$state.go('trip',{ tripId:_id});*/
-        });
+        this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
+            path =  response.data.filename;
+            path = path.toString();
+            that.trip.path = path;
+            console.log("1: "+that.trip.path);
+            that.TripsService.create(that.trip).then(data => {
+                that.$state.go('trips',{});
+        })
+
+        })
+
 
     };
 
