@@ -6,6 +6,10 @@ var jwt = require('jwt-simple');
 
 
 module.exports.test = function (req, res) {
+    if(!req.file){
+        res.status(400).send('Profil picture is required');
+        return;
+    }
     var photo = req.file;
     var originalname = photo.originalname;
     var filename = photo.filename;
