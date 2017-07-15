@@ -91,9 +91,18 @@ class ViewTripEditComponentController{
         this.trip.date = toString;
 
         this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
-            that.trip.imagePath1 =  response.data[0].filename;
-            that.trip.imagePath2 =  response.data[1].filename;
-            that.trip.imagePath3 =  response.data[2].filename;
+            if (that.$scope.profileImage.photo1 != undefined){
+                console.log("photo1 defined");
+                that.trip.imagePath1 =  response.data[0].filename;
+            }
+            if (that.$scope.profileImage.photo2 != undefined){
+                console.log("photo2 defined");
+                that.trip.imagePath2 =  response.data[1].filename;
+            }
+            if (that.$scope.profileImage.photo3 != undefined){
+                console.log("photo3 defined");
+                that.trip.imagePath3 =  response.data[2].filename;
+            }
 
             that.TripsService.update(that.trip).then(data => {
                 that.trip = JSON.parse(JSON.stringify(data));
