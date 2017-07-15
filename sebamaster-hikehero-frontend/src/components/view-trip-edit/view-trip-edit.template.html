@@ -67,9 +67,9 @@
                             <img id="image2" width="100" height="100" src="{{$ctrl.trip.imagePath2}}" />
                             <img id="image3" width="100" height="100" src="{{$ctrl.trip.imagePath3}}" />
                             <div layout="column">
-                                <input type="file" id="imageUpload1" name="photo" file-model="profileImage.photo1" ng-if="!$ctrl.$scope.profileImage.photo1"/>
-                                <input type="file" id="imageUpload2" name="photo" file-model="profileImage.photo2" ng-if="$ctrl.$scope.profileImage.photo1 && !$ctrl.$scope.profileImage.photo2"/>
-                                <input type="file" id="imageUpload3" name="photo" file-model="profileImage.photo3" ng-if="$ctrl.$scope.profileImage.photo2"/>
+                                <input type="file" id="imageUpload1" aria-label="image-upload-edit" name="photo" file-model="profileImage.photo1" ng-if="!$ctrl.$scope.profileImage.photo1"/>
+                                <input type="file" id="imageUpload2" aria-label="image-upload-edit" name="photo" file-model="profileImage.photo2" ng-if="$ctrl.$scope.profileImage.photo1 && !$ctrl.$scope.profileImage.photo2"/>
+                                <input type="file" id="imageUpload3" aria-label="image-upload-edit" name="photo" file-model="profileImage.photo3" ng-if="$ctrl.$scope.profileImage.photo2"/>
                             </div>
                             <span flex></span>
                         </div>

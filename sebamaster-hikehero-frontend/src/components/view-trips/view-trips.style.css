@@ -7,7 +7,7 @@
 #search{
     max-width: 90%;
 }
-#date{
+#date,#range {
     margin-top: -20px;
 }
 

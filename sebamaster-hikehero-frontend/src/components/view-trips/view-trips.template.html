@@ -22,14 +22,17 @@
             </md-input-container>
             <span>&emsp;</span>
             <md-input-container flex="10">
+                <label> </label>
                 <input type="text" ng-model="$ctrl.search.minPrice" placeholder="Price Min"/>
             </md-input-container>
             <span>&emsp;</span>
             <md-input-container flex="10">
+                <label> </label>
                 <input type="text" ng-model="$ctrl.search.maxPrice" placeholder="Price Max"/>
             </md-input-container>
             <span>&emsp;</span>
             <md-input-container flex="15">
+                <label> </label>
                 <md-select id="date" name="type" ng-model="$ctrl.search.difficulty" placeholder="Difficulty" layout-align="center center">
                     <md-option value="grad1">*</md-option>
                     <md-option value="grad2">**</md-option>
@@ -40,7 +43,8 @@
             </md-input-container>
             <span>&emsp;</span>
             <md-input-container flex="15">
-                <md-select id="date" name="type" ng-model="$ctrl.search.distance" placeholder="Range" layout-align="center center">
+                <label> </label>
+                <md-select id="range" name="type" ng-model="$ctrl.search.distance" placeholder="Range" layout-align="center center">
                     <md-option value=10>10 km</md-option>
                     <md-option value=20>20 km</md-option>
                     <md-option value=50>50 km</md-option>
