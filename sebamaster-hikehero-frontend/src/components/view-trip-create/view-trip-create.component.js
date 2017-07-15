@@ -78,9 +78,18 @@ class ViewTripCreateComponentController{
         this.trip['user'] = user['_id'];
         //console.log(this.TripsService.upload(uploadUrl,this.$scope.profileImage));
         this.TripsService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
-            that.trip.imagePath1 =  response.data[0].filename;
-            that.trip.imagePath2 =  response.data[1].filename;
-            that.trip.imagePath3 =  response.data[2].filename;
+            if (that.$scope.profileImage.photo1 != undefined){
+                console.log("photo1 defined");
+                that.trip.imagePath1 =  response.data[0].filename;
+            }
+            if (that.$scope.profileImage.photo2 != undefined){
+                console.log("photo2 defined");
+                that.trip.imagePath2 =  response.data[1].filename;
+            }
+            if (that.$scope.profileImage.photo3 != undefined){
+                console.log("photo3 defined");
+                that.trip.imagePath3 =  response.data[2].filename;
+            }
 
             that.TripsService.create(that.trip).then(data => {
                 that.$state.go('trips',{});

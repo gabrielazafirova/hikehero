@@ -57,10 +57,12 @@ class ViewSignUpComponentController{
         let description = this.signup.description;
 
         this.UserService.upload(uploadUrl,this.$scope.profileImage).then( function (response){
-            path =  response.data.filename;
-            path = path.toString();
-            that.test = path;
-            console.log("1: "+that.test);
+            if(that.$scope.profileImage.photo != undefined) {
+                path = response.data.filename;
+                path = path.toString();
+                that.test = path;
+                console.log("1: " + that.test);
+            }
             that.UserService.signup(email,password, firstname, lastname, description, path).then(()=> {
                 that.$state.go('trips',{});
         })
