@@ -1,6 +1,10 @@
 #bg {
-    background-image: url(background.jpg);
-    background-size: cover;
+    position: fixed;
+    z-index: -1;
+}
+
+body {
+    background-color: transparent;
 }
 
 md-content {
