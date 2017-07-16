@@ -16,9 +16,18 @@
 <div class="container">
     <div class="col-8">
         <div>
-            <img class="tripSlides shadow" src="{{$ctrl.trip.imagePath1}}">
-            <img class="tripSlides shadow" src="{{$ctrl.trip.imagePath2}}">
-            <img class="tripSlides shadow" src="{{$ctrl.trip.imagePath3}}">
+            <div class="tripSlides shadow">
+                <img src="{{$ctrl.trip.imagePath1}}" ng-if="$ctrl.trip.imagePath1">
+                <img src="placeholder-800x423.jpg" ng-if="!$ctrl.trip.imagePath1">
+            </div>
+            <div class="tripSlides shadow">
+                <img src="{{$ctrl.trip.imagePath2}}" ng-if="$ctrl.trip.imagePath2">
+                <img src="placeholder-800x423.jpg" ng-if="!$ctrl.trip.imagePath2">
+            </div>
+            <div class="tripSlides shadow">
+                <img src="{{$ctrl.trip.imagePath3}}" ng-if="$ctrl.trip.imagePath3">
+                <img src="placeholder-800x423.jpg" ng-if="!$ctrl.trip.imagePath3">
+            </div>
         </div>
         <div class="sliderButtons">
             <button class="sliderButton" ng-click="$ctrl.previousSlide()"><i class="fa fa-angle-left"></i></button>
