@@ -100,6 +100,11 @@ md-content {
     background-color: #0657b7;
 }
 
+.my-button:disabled {
+    background-color: lightgrey;
+    color: grey;
+}
+
 
 .validation-message {
     color: red;
@@ -108,3 +113,59 @@ md-content {
     padding: 0;
     text-align: center;
 }
+
+.slight-indentation {
+    margin-left : 3em;
+}
+
+md-input-container label {
+    color: black;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: black;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #0a7bff;
+}
+
+ng-md-icon svg {
+    fill: inherit;
+}
+
+md-input-container:not(.md-input-invalid) ng-md-icon {
+   fill: #0a7bff;
+}
+
+md-input-container.md-input-invalid ng-md-icon {
+    fill: red;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-datepicker-calendar-icon {
+    color: #0a7bff;
+}
+
+.md-datepicker-calendar-icon {
+    color: #0a7bff;
+}
+
+
+md-select:not([disabled]):focus .md-select-value{
+    border-bottom-color: #0a7bff;
+}
+
+md-input-container.md-input-focused:not(.md-input-has-value) md-select .md-select-value.md-select-placeholder {
+    color: black;
+}
+
+
+/*
+md-select:focus .md-select-label {
+    border-color: green;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused md-select {
+    border-color: green;
+}
+*/

@@ -68,3 +68,13 @@
 #difficulty-label {
     margin-right: 10px;
 }
+
+.guide-link {
+    font-weight: bold;
+    color: #0a7bff;
+    text-decoration: none;
+}
+
+.guide-link:hover {
+    color: #0657b7;
+}

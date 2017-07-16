@@ -35,9 +35,14 @@ class ViewTripComponentController{
     }
 
     $onInit() {
-        console.log(this.trip.user.lastname);
+        // console.log(this.trip.user.lastname);
         this.displaySlider();
-        this.makeButtonBold('overview-button');
+        this.makeButtonBold('location-button');
+    }
+
+    testicle(){
+        console.log(this.questions.length);
+
     }
 
     showValidationMessages() {
@@ -137,21 +142,21 @@ class ViewTripComponentController{
         });
     };
 
-    openOverview() {
+    openLocation() {
         this.normalizeFontWeightOfTabButtons();
-        this.makeButtonBold('overview-button');
+        this.makeButtonBold('location-button');
         this.tabState = 0;
+    };
+
+    openDescription() {
+        this.normalizeFontWeightOfTabButtons();
+        this.makeButtonBold('description-button');
+        this.tabState = 1;
     };
 
     openGuide() {
         this.normalizeFontWeightOfTabButtons();
         this.makeButtonBold('guide-button');
-        this.tabState = 1;
-    };
-
-    openLocation() {
-        this.normalizeFontWeightOfTabButtons();
-        this.makeButtonBold('location-button');
         this.tabState = 2;
     };
 

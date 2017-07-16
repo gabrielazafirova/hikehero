@@ -45,7 +45,7 @@
                         <label>Description</label>
                         <textarea ng-model="$ctrl.signup.description" md-maxlength="250" rows="3" md-select-on-focus></textarea>
                     </md-input-container>
-                    <md-button ng-disabled="!SignUpForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Sign up &nbsp</md-button>
+                    <button ng-disabled="!SignUpForm.$valid" ng-click="$ctrl.submit()" class="my-button">&nbsp Sign up &nbsp</button>
                 </form>
             </md-card-content>
         </md-card>
