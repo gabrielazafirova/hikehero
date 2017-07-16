@@ -34,9 +34,15 @@ class ViewTripsComponentController{
             if(_this.search == {}) {
                 return true;
             }
-            if(trip.location != _this.search.location & _this.search.location != undefined) {
+
+            if(_this.search.location != undefined && _this.search.distance != undefined) {
+                if (_this.distanceInKmBetweenEarthCoordinates(_this.search.lat, _this.search.lon, trip.lat, trip.lon) > _this.search.distance) {
+                    return false;
+                }
+            } else if(_this.search.location != undefined && trip.location != _this.search.location) {
                 return false;
             }
+
             if(trip.date != _this.search.date & _this.search.date != undefined) {
                 return false;
             }
@@ -47,9 +53,6 @@ class ViewTripsComponentController{
                 return false;
             }
             if(trip.difficulty != _this.search.difficulty & _this.search.difficulty != undefined) {
-                return false;
-            }
-            if(_this.distanceInKmBetweenEarthCoordinates(_this.search.lat, _this.search.lon, trip.lat, trip.lon) > _this.search.distance) {
                 return false;
             }
             return true;
