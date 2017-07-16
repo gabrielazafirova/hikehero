@@ -92,7 +92,7 @@
                         <p class="slight-indentation" style="margin-bottom: 0;">Answered by guide <a href class="guide-link" ng-click="$ctrl.openGuide()">{{$ctrl.trip.creator}}</a>:</p>
                         <h3 class="slight-indentation" style="margin-top: 0.3em;">{{question.answer}}</h3>
                     </div>
-                    <button ng-if="$ctrl.isTripCreator() && $ctrl.questionReplyingID != question._id && !question.answer" ng-click="$ctrl.typeAnswerToQuestion(question._id)">Reply</button>
+                    <button class="my-button" ng-if="$ctrl.isTripCreator() && $ctrl.questionReplyingID != question._id && !question.answer" ng-click="$ctrl.typeAnswerToQuestion(question._id)">Reply</button>
                     <form ng-submit="$ctrl.postAnswer()" autocomplete="off" ng-if="$ctrl.questionReplyingID == question._id">
                         <md-input-container>
                             <input ng-model="$ctrl.answer" type="text" placeholder="Type a reply ...">
@@ -137,7 +137,7 @@
                     <p class="validation-message"></p>
                 </div>
                 <div id="card-approval-number" class="columnContainer">
-                    <input class="user-input" type="number" min="100" max="999" ng-model="$ctrl.booking.cardApprovalNumber" placeholder="Approval number" length="3" required>
+                    <input class="user-input" type="number" ng-model="$ctrl.booking.cardApprovalNumber" placeholder="Approval number" length="3" required>
                     <p class="validation-message"></p>
                 </div>
                 <div id="card-valid-until-month" class="columnContainer">
