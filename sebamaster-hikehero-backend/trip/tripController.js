@@ -17,7 +17,7 @@ exports.postTrip = function(req, res) {
 };
 // Create endpoint /api/trips for GET
 exports.getTrips = function(req, res) {
-    Trip.find(function(err, trips) {
+    Trip.find({ trip: req.params.trip_id }).populate('user').exec(function(err, trips) {
         if (err) {
             res.status(400).send(err);
             return;
@@ -25,6 +25,21 @@ exports.getTrips = function(req, res) {
         res.json(trips);
     });
 };
+
+/*
+
+exports.getTrips = function(req, res) {
+ Trip.find(function(err, trips) {
+ if (err) {
+ res.status(400).send(err);
+ return;
+ }
+ res.json(trips);
+ });
+ };
+
+ */
+
 // Create endpoint /api/trips/:trip_id for GET
 exports.getTrip = function(req, res) {
     // Use the Trip model to find a specific trip

@@ -21,6 +21,7 @@ function userRoutes(passport) {
         }
 
     })});
+
     //var upload = multer({ dest: 'uploads/' });
 /*
     router.post('/upload', upload.single('photo'), function (req, res) {

@@ -4,10 +4,9 @@ var jwt = require('jwt-simple');
 
 //var path = "";
 
-
 module.exports.test = function (req, res) {
     if(!req.file){
-        res.status(400).send('Profil picture is required');
+        res.status(400).send('Profile picture is required');
         return;
     }
     var photo = req.file;

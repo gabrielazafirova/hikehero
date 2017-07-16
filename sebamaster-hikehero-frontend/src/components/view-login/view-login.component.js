@@ -17,7 +17,6 @@ class ViewLoginComponent {
         return 'viewLogin';
     }
 
-
 }
 
 class ViewLoginComponentController{

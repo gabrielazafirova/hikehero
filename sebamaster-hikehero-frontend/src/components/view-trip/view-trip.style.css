@@ -1,7 +1,4 @@
-[class*="col-"] {
-    float: left;
-    padding: 1em;
-}
+
 
 /* The Modal (background) */
 .modal {
@@ -66,4 +63,8 @@
 
 .tripSlides {
     width: 100%;
+}
+
+#difficulty-label {
+    margin-right: 10px;
 }

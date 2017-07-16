@@ -2,7 +2,6 @@ var Booking = require('./bookingSchema');
 var Trip = require('./tripSchema');
 var User = require('../user/userSchema');
 
-// Create endpoint /api/trips/:trip_id/bookings for GET
 exports.postBooking = function(req, res) {
     var booking = new Booking(req.body);
     booking.trip = req.params.trip_id;
@@ -15,7 +14,7 @@ exports.postBooking = function(req, res) {
         res.status(201).json(m);
     });
 };
-// Create endpoint /api/trips/:trip_id/bookings for GET
+
 exports.getBookings = function(req, res) {
     Booking.find(function(err, bookings) {
         if (err) {

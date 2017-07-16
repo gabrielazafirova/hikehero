@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <div>
     <img class="tripsSlides shadow" src="Slider_1.png">
     <img class="tripsSlides shadow" src="Slider_2.png">
@@ -34,11 +32,11 @@
             <md-input-container flex="15">
                 <label> </label>
                 <md-select id="date" name="type" ng-model="$ctrl.search.difficulty" placeholder="Difficulty" layout-align="center center">
-                    <md-option value="grad1">*</md-option>
-                    <md-option value="grad2">**</md-option>
-                    <md-option value="grad3">***</md-option>
-                    <md-option value="grad4">****</md-option>
-                    <md-option value="grad5">*****</md-option>
+                    <md-option value="grad1"><i class="fa fa-bolt"></i></md-option>
+                    <md-option value="grad2"><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></md-option>
+                    <md-option value="grad3"><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></md-option>
+                    <md-option value="grad4"><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></md-option>
+                    <md-option value="grad5"><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></md-option>
                 </md-select>
             </md-input-container>
             <span>&emsp;</span>
@@ -68,11 +66,15 @@
                       md-colspan-gt-sm="4"
                       md-rowspan-gt-sm="2">
         <div layout="column" layout-fill>
-            <md-card ng-style="{'background-color':'#434343', 'color':'white'}">
+            <md-card class="shadow" ng-style="{'background-color':'#434343', 'color':'white'}">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline" ng-style="{'margin-top':'-20px', 'font-weight' : 'bold' , 'font-size': '100%'}">{{trip.title}}</span>
-                        <span class="md-subhead" ng-style="{'color':'white'}">Difficulty: {{trip.difficulty}}</span>
+                        <span class="md-subhead" ng-style="{'color':'white'}" ng-if="trip.difficulty == 'grad1'">Difficulty: <i class="fa fa-bolt"></i></span>
+                        <span class="md-subhead" ng-style="{'color':'white'}" ng-if="trip.difficulty == 'grad2'">Difficulty: <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></span>
+                        <span class="md-subhead" ng-style="{'color':'white'}" ng-if="trip.difficulty == 'grad3'">Difficulty: <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></span>
+                        <span class="md-subhead" ng-style="{'color':'white'}" ng-if="trip.difficulty == 'grad4'">Difficulty: <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></span>
+                        <span class="md-subhead" ng-style="{'color':'white'}" ng-if="trip.difficulty == 'grad5'">Difficulty: <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i></span>
                     </md-card-title-text>
                     <md-card-title-media>
                         <div style="text-align: center">

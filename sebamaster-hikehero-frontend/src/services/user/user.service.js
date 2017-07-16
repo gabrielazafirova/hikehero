@@ -17,7 +17,7 @@ export default class UserService {
         return 'UserService';
     }
 
-   upload(uploadUrl, data){
+    upload(uploadUrl, data){
            var fd = new FormData();
            for(var key in data)
                fd.append(key, data[key]);

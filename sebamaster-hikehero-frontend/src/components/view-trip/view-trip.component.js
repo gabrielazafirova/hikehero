@@ -35,6 +35,7 @@ class ViewTripComponentController{
     }
 
     $onInit() {
+        console.log(this.trip.user.lastname);
         this.displaySlider();
         this.makeButtonBold('overview-button');
     }

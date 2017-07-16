@@ -20,7 +20,6 @@ import ViewTrips from './components/view-trips/view-trips';
 import ViewTrip from './components/view-trip/view-trip';
 import ViewTripEdit from './components/view-trip-edit/view-trip-edit';
 import ViewTripCreate from './components/view-trip-create/view-trip-create';
-import ViewCarousel from './components/view-carousel/view-carousel';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignUp from './components/view-signup/view-signup';
 
@@ -36,7 +35,6 @@ let app = angular.module('app', [
     ViewTrip.name,
     ViewTripEdit.name,
     ViewTripCreate.name,
-    ViewCarousel.name,
     ViewLogin.name,
     ViewSignUp.name,
 ]).directive('fileModel', ['$parse', function($parse){

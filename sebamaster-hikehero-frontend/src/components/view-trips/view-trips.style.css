@@ -1,19 +1,24 @@
+/*
 .md-button{
     margin-top: -15px;
     height: 30px;
     min-width: 30px;
 }
+ */
 
 #search{
     max-width: 90%;
 }
+
 #date,#range {
     margin-top: -20px;
 }
 
+/*
 md-card {
     padding: 0 !important;
 }
+*/
 
 .tripsSlides {
     width: 100%;

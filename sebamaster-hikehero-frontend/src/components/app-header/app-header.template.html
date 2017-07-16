@@ -31,11 +31,6 @@
                     Login
                 </md-button>
 
-                <md-button ng-if="!$ctrl.isAuthenticated()" ng-click="$ctrl.login($event)" >
-                    <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
-                    Login
-                </md-button>
-
                 <md-button ng-if="$ctrl.isAuthenticated()" ng-click="$ctrl.logout($event)">
                     <md-icon md-menu-align-target><ng-md-icon icon="logout" ></ng-md-icon></md-icon>
                     Logout

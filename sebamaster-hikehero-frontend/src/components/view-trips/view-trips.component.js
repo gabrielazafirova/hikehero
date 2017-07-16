@@ -118,40 +118,6 @@ class ViewTripsComponentController{
         return this.UserService.isAuthenticated();
     };
 
-    edit (trip) {
-
-        if (this.UserService.isAuthenticated()) {
-            let _id = trip['_id'];
-            this.$state.go('tripEdit',{ tripId:_id});
-        } else {
-            this.$state.go('login',{});
-        }
-    };
-
-    newTrip(){
-
-        if (this.UserService.isAuthenticated()) {
-            this.$state.go('tripAdd',{});
-        } else {
-            this.$state.go('login',{});
-        }
-
-    };
-
-    delete(trip) {
-        if (this.UserService.isAuthenticated()) {
-            let _id = trip['_id'];
-
-            this.TripsService.delete(_id).then(response => {
-                let index = this.trips.map(x => x['_id']).indexOf(_id);
-                this.trips.splice(index, 1);
-            })
-
-        } else {
-            this.$state.go('login',{});
-        }
-    };
-
     degreesToRadians(degrees) {
         return degrees * Math.PI / 180;
     }
