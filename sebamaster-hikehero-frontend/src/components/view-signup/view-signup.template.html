@@ -11,41 +11,34 @@
                                 <img src='profilbild_placeholder.jpg' width="100" height="100" id="profil_image"/>
                             </label>
                         </div>
-                        <input class="signup" id="file-upload" name="photo" type="file" file-model="profileImage.photo"/>
+                        <input class="signup" id="file-upload" name="photo" type="file" file-model="profileImage.photo" required/>
+                    </div>
+                    <div>
+                        <p id="picture-error-message" class="validation-message" style="margin: 20px;">A profile picture is required.</p>
                     </div>
                     <md-input-container class="md-block">
                         <label>First Name</label>
-                        <input type="text" name="firstname" ng-model="$ctrl.signup.firstname" placeholder="Enter your first name" required=""/>
-                        <div ng-messages="SignUpForm.firstname.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your first name.</div>
-                        </div>
+                        <input type="text" name="firstname" ng-model="$ctrl.signup.firstname" placeholder="Enter your first name" required/>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Last Name</label>
-                        <input type="text" name="lastname" ng-model="$ctrl.signup.lastname" placeholder="Enter your last name" required=""/>
-                        <div ng-messages="SignUpForm.lastname.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your last name.</div>
-                        </div>
+                        <input type="text" name="lastname" ng-model="$ctrl.signup.lastname" placeholder="Enter your last name" required/>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Email-Address</label>
-                        <input type="text" name="email" ng-model="$ctrl.signup.email" placeholder="Enter your email-address" required=""/>
-                        <div ng-messages="SignUpForm.email.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your email-address.</div>
-                        </div>
+                        <input type="email" name="email" ng-model="$ctrl.signup.email" placeholder="Enter your email-address" required/>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.signup.password" placeholder="password" required="" md-maxlength="64"/>
-                        <div ng-messages="SingUpForm.password.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your password.</div>
-                        </div>
+                        <input type="password" name="password" ng-model="$ctrl.signup.password" placeholder="password" required md-maxlength="64"/>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Description</label>
                         <textarea ng-model="$ctrl.signup.description" md-maxlength="250" rows="3" md-select-on-focus></textarea>
                     </md-input-container>
-                    <button ng-disabled="!SignUpForm.$valid" ng-click="$ctrl.submit()" class="my-button">&nbsp Sign up &nbsp</button>
+                    <button ng-if="!SignUpForm.$valid" type = "submit" class="my-button">&nbsp Sign up &nbsp</button>
+                    <button ng-if="SignUpForm.$valid && $ctrl.pictureUploaded()!=0" ng-click="$ctrl.submit()" class="my-button">&nbsp Sign up &nbsp</button>
+                    <button ng-if="SignUpForm.$valid && $ctrl.pictureUploaded()==0" ng-click="$ctrl.pictureErrorMessage()" class="my-button">&nbsp Sign up &nbsp</button>
                 </form>
             </md-card-content>
         </md-card>

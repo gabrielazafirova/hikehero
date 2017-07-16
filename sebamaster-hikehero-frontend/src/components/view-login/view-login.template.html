@@ -18,6 +18,9 @@
                         <div ng-messages="LoginForm.password.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your password.</div>
                         </div>
+                        <div>
+                            <p id="wrong-login-info" class="validation-message" style="margin-top: 30px;">Your login data is incorrect.</p>
+                        </div>
                     </md-input-container>
                     <button ng-disabled="!LoginForm.$valid" ng-click="$ctrl.submit()" class="my-button">&nbsp Login &nbsp</button>
                 </form>

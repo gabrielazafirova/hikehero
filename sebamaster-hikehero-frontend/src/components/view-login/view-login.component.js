@@ -26,6 +26,7 @@ class ViewLoginComponentController{
     }
 
     $onInit() {
+        document.getElementById("wrong-login-info").style.display = "none";
         this.login = {};
     }
 
@@ -36,6 +37,8 @@ class ViewLoginComponentController{
         this.UserService.login(user,password).then(()=> {
             this.$state.go('trips',{});
         });
+
+        document.getElementById("wrong-login-info").style.display = "block";
     }
 
     static get $inject(){

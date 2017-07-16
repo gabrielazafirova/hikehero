@@ -42,6 +42,15 @@ class ViewSignUpComponentController{
 
     $onInit() {
         this.signup = {};
+        document.getElementById("picture-error-message").style.display = "none";
+    }
+
+    pictureErrorMessage() {
+        document.getElementById("picture-error-message").style.display = "block";
+    }
+
+    pictureUploaded() {
+        return document.getElementById("file-upload").files.length;
     }
 
     submit(){

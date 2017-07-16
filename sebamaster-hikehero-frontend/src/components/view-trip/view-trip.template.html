@@ -25,7 +25,7 @@
             <button class="sliderButton" ng-click="$ctrl.nextSlide()"><i class="fa fa-angle-right"></i></button>
         </div>
     </div>
-    <div class="col-4 hero-box shadow columnContainer">
+    <div id="booking-box" class="col-4 hero-box shadow columnContainer">
         <p style="font-size: 150%; font-weight: bold";>{{ $ctrl.trip.price }}€</p>
 
         <p>{{ $ctrl.trip.date }}</p>
@@ -43,26 +43,41 @@
     </div>
 </div>
 
-
-<button class="tab-buttons" id="location-button" ng-click="$ctrl.openLocation()">Location</button>
 <button class="tab-buttons" id="description-button" ng-click="$ctrl.openDescription()">Description</button>
+<button class="tab-buttons" id="location-button" ng-click="$ctrl.openLocation()">Location</button>
 <button class="tab-buttons" id="guide-button" ng-click="$ctrl.openGuide()">Guide</button>
 <button class="tab-buttons" id="questions-button" ng-click="$ctrl.openQuestions()">Questions</button>
 
-<div id="tabs">
+<div id="tabs" style="margin-bottom: 1em;">
     <div ng-if="$ctrl.tabState == 0" map-lazy-load="https://maps.google.com/maps/api/js">
         <p>{{$ctrl.trip.location}}</p>
-        <ng-map class="shadow" center="[{{$ctrl.trip.lat}}, {{$ctrl.trip.lon}}]" zoom="10">
+        <ng-map id="trip-map" class="shadow" center="[{{$ctrl.trip.lat}}, {{$ctrl.trip.lon}}]" zoom="10">
             <marker position="[{{$ctrl.trip.lat}}, {{$ctrl.trip.lon}}]" title={{$ctrl.trip.location}}></marker>
         </ng-map>
     </div>
 
     <div ng-if="$ctrl.tabState == 1">
-        <p>{{$ctrl.trip.description}}</p>
+        <p>This is a description of the trip provided by the guide:</p>
+        <div class="col-12 hero-box shadow">
+            <p>{{$ctrl.trip.description}}</p>
+        </div>
     </div>
 
     <div ng-if="$ctrl.tabState == 2">
-        <p>Created by {{$ctrl.trip.creator}}</p>
+        <p>This is a short description of our guide:</p>
+        <div class="col-12 hero-box shadow">
+            <div class="container-left">
+                <div class="col-3">
+                    <img class="shadow" src="{{$ctrl.trip.user.path}}">
+                </div>
+                <div class="column-container-left">
+                    <p>Name: <span style="font-weight: bold;">{{$ctrl.trip.user.firstname}} {{$ctrl.trip.user.lastname}}</span></p>
+                    <p>Kontakt: <span style="font-weight: bold;">{{$ctrl.trip.user.email}}</span></p>
+                    <p>{{$ctrl.trip.user.description}}</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div ng-if="$ctrl.tabState == 3">
@@ -86,7 +101,7 @@
                 </li>
             </ul>
 
-            <form class="slight-indentation" ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator()">
+            <form class="slight-indentation" ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator() && $crtl.isAuthenticated()">
                 <md-input-container>
                     <input ng-if="$ctrl.questions.length == 0" ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
                     <input ng-if="$ctrl.questions.length != 0" ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
@@ -119,11 +134,11 @@
                     <p class="validation-message"></p>
                 </div>
                 <div id="card-number" class="columnContainer">
-                    <input class="user-input" type="text" ng-model="$ctrl.booking.cardNumber" placeholder="Credit card number" minlength="10" required>
+                    <input class="user-input" type="number" min="1000000000" max="9999999999999999999" ng-model="$ctrl.booking.cardNumber" placeholder="Credit card number" required>
                     <p class="validation-message"></p>
                 </div>
                 <div id="card-approval-number" class="columnContainer">
-                    <input class="user-input" type="text" ng-model="$ctrl.booking.cardApprovalNumber" placeholder="Approval number" minlength="3" required>
+                    <input class="user-input" type="number" min="100" max="999" ng-model="$ctrl.booking.cardApprovalNumber" placeholder="Approval number" length="3" required>
                     <p class="validation-message"></p>
                 </div>
                 <div id="card-valid-until-month" class="columnContainer">

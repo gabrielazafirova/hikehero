@@ -42,10 +42,6 @@
     cursor: pointer;
 }
 
-#tabs {
-    height: 25em;
-}
-
 .tab-buttons {
     font-size: 150%;
     background-color: transparent;
@@ -78,3 +74,8 @@
 .guide-link:hover {
     color: #0657b7;
 }
+
+#booking-box > * {
+    margin: 15px;
+}
+

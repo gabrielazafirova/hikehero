@@ -30,20 +30,16 @@ class ViewTripComponentController{
         this.question = {};
         this.questionReplyingID = "";
         this.answer = "";
-        this.tabState = 0;
+        this.tabState;
         this.slideIndex = 1;
     }
 
     $onInit() {
-        // console.log(this.trip.user.lastname);
+        console.log(this.trip.user.lastname);
         this.displaySlider();
-        this.makeButtonBold('location-button');
+        this.openDescription();
     }
 
-    testicle(){
-        console.log(this.questions.length);
-
-    }
 
     showValidationMessages() {
         this.clearValidationMessages();

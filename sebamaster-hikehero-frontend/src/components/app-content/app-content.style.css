@@ -18,12 +18,27 @@ md-content {
     align-items: center;     /* center items horizontally, in this case */
 }
 
+.container-left {
+    display: flex;           /* establish flex container */
+    flex-direction: row;     /* make main axis vertical */
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .columnContainer {
     display: flex;           /* establish flex container */
     flex-direction: column;  /* make main axis vertical */
     justify-content: center;
     align-items: center;
 }
+
+.column-container-left {
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center;
+    align-items: flex-start;
+}
+
 
 [class*="col-"] {
     float: left;
@@ -159,13 +174,6 @@ md-input-container.md-input-focused:not(.md-input-has-value) md-select .md-selec
     color: black;
 }
 
-
-/*
-md-select:focus .md-select-label {
-    border-color: green;
+img {
+    max-width: 100%;
 }
-
-md-input-container:not(.md-input-invalid).md-input-focused md-select {
-    border-color: green;
-}
-*/
