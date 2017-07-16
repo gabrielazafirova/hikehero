@@ -211,7 +211,7 @@ class ViewTripComponentController{
     }
 
     isTripCreator() {
-        return this.UserService.getCurrentUser()._id == this.trip.user;
+        return this.UserService.getCurrentUser()._id == this.trip.user._id;
     };
 
     getPosterURL(){
