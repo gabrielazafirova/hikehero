@@ -40,7 +40,6 @@ class ViewTripComponentController{
         this.openDescription();
     }
 
-
     showValidationMessages() {
         this.clearValidationMessages();
         this.showValidationMessage("card-first-name");

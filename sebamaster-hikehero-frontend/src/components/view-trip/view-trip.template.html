@@ -57,7 +57,7 @@
     </div>
 
     <div ng-if="$ctrl.tabState == 1">
-        <p>This is a description of the trip provided by the guide:</p>
+        <p>This is a description of the trip provided by our guide:</p>
         <div class="col-12 hero-box shadow">
             <p>{{$ctrl.trip.description}}</p>
         </div>
@@ -100,12 +100,11 @@
                     </form>
                 </li>
             </ul>
-
-            <form class="slight-indentation" ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator() && $crtl.isAuthenticated()">
-                <md-input-container>
-                    <input ng-if="$ctrl.questions.length == 0" ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
-                    <input ng-if="$ctrl.questions.length != 0" ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
-                </md-input-container>
+            <form class="slight-indentation" ng-submit="$ctrl.postQuestion()" autocomplete="off" ng-if="!$ctrl.isTripCreator() && $ctrl.isAuthenticated()">
+                    <md-input-container>
+                        <input ng-if="$ctrl.questions.length == 0" ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
+                        <input ng-if="$ctrl.questions.length != 0" ng-model="$ctrl.question.content" type="text" placeholder="Ask a question ...">
+                    </md-input-container>
             </form>
         </div>
     </div>
