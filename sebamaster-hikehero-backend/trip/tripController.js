@@ -43,12 +43,11 @@ exports.getTrips = function(req, res) {
 // Create endpoint /api/trips/:trip_id for GET
 exports.getTrip = function(req, res) {
     // Use the Trip model to find a specific trip
-    Trip.findById(req.params.trip_id, function(err, trip) {
+    Trip.findById(req.params.trip_id).populate('user').exec(function(err, trip) {
         if (err) {
             res.status(400).send(err)
             return;
-        };
-
+        }
         res.json(trip);
     });
 };
